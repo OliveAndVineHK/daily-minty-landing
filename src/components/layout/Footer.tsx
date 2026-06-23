@@ -88,11 +88,11 @@ export default function Footer() {
         <div className="flex gap-[18px] items-center text-ink-muted text-[13px]">
           <Link href="/" aria-label="Daily Minty home" className="inline-flex items-center">
             <Image
-              src="/assets/minty-logo-v2.png"
+              src="/assets/minty-logo.png"
               alt=""
-              width={78}
-              height={26}
-              className="h-[26px] w-auto block"
+              width={100}
+              height={60}
+              className="h-[40px] w-auto block"
             />
           </Link>
           <span>© {year} {siteConfig.author.name}</span>

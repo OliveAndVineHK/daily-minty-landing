@@ -1,58 +1,59 @@
 export const landingContent = {
   hero: {
-    title: 'Daily Minty — ',
-    titleAccent: 'Fresh AI summaries delivered',
-    lede: 'Get personalized, daily summaries of what matters to you. Stay informed without information overload.',
+    title: 'Daily Minty',
+    titleAccent: '',
+    lede: 'No more lost receipts, no more missing numbers.',
     primaryCta: {
-      label: 'Start Free',
+      label: 'Get started with Minty',
       href: '/get-started',
     },
     secondaryCta: {
-      label: 'Learn more',
+      label: 'See how it works',
       href: '#how-it-works',
     },
-    trustText: 'Join 5,000+ users who save 2 hours daily',
+    trustText: 'Sync directly with Xero',
     imageAlt: 'Daily Minty hero image showing a cat with a laptop and phone',
     image: '/assets/deployed-assets/hero-cat-laptop-phone.png',
   },
   how: {
-    title: 'How It Works',
-    subtitle: 'Three simple steps to start getting smarter summaries.',
+    title: 'Minty helps you close the day,',
+    titleAccent: 'everyday.',
+    subtitle: 'Three methods. One go-to dashboard. Zero spreadsheet trauma.',
     steps: [
       {
         num: 1,
         image: '/assets/deployed-assets/step1-cat-coins.png',
-        alt: 'Step 1: Connect your sources',
-        title: 'Connect Your Sources',
-        body: 'Link your favorite news outlets, websites, and feeds.',
+        alt: 'Enter today\'s numbers',
+        title: 'Enter today\'s numbers',
+        body: 'You\'ll be making and entering quickly in a clean, guided interface.',
       },
       {
         num: 2,
         image: '/assets/deployed-assets/step2-cat-atm.png',
-        alt: 'Step 2: Set your preferences',
-        title: 'Set Your Preferences',
-        body: 'Tell us what topics matter to you and how often you want updates.',
+        alt: 'Check the cash',
+        title: 'Check the cash',
+        body: 'Count your draw amount + Minty does the math along side you.',
       },
       {
         num: 3,
         image: '/assets/deployed-assets/step3-cat-phone.png',
-        alt: 'Step 3: Receive daily summaries',
-        title: 'Receive Daily Summaries',
-        body: 'Get fresh, AI-powered summaries delivered to your inbox every morning.',
+        alt: 'Get a clean daily report',
+        title: 'Get a clean daily report',
+        body: 'A clean, accurate summary that\'s ready to review, share or export.',
       },
     ],
   },
   problem: {
     tag: 'The Problem',
-    headline: 'Information overload is killing productivity',
-    highlights: ['Information overload', 'productivity'],
+    headline: 'Daily closing gets complicated on busy days.',
+    highlights: ['complicated'], 
     items: [
-      'Spending hours reading and filtering content',
-      'Missing important news and updates',
-      'Context switching between multiple sources',
-      'No time for what actually matters',
+      'Rushed entries at closing',
+      "Numbers don't match",
+      'Extra time fixing mistakes',
+      'Stress follows you home',
     ],
-    imageAlt: 'A cat sitting in a cardboard box representing feeling overwhelmed',
+    imageAlt: 'A sad black cat sitting in a cardboard box surrounded by receipts representing feeling overwhelmed with business closing tasks',
     image: '/assets/deployed-assets/problem-cat-box.png'
   },
   outcome: {
@@ -81,37 +82,34 @@ export const landingContent = {
     },
   ],
 },
-  helpsYou: {
-    title: 'Minty helps you close the day,',
-    titleAccent: 'everyday.',
-    subtitle: 'Three essential workflows to streamline your closing process.',
-    cards: [
-      {
-        num: 1,
-        image: '/assets/helps-1.png',
-        alt: 'Enter today\'s numbers',
-        title: 'Enter today\'s numbers',
-        body: 'Log your petty cash and daily income in one clean, guided interface.',
-      },
-      {
-        num: 2,
-        image: '/assets/helps-2.png',
-        alt: 'Check the cash',
-        title: 'Check the cash',
-        body: 'Instant reconciliation and error checking with intelligent alerts.',
-      },
-      {
-        num: 3,
-        image: '/assets/helps-3.png',
-        alt: 'Get a clean daily report',
-        title: 'Get a clean daily report',
-        body: 'A clean, accurate summary ready to export or file in seconds.',
-      },
-    ],
-  },
-  demo: {
-    title: 'See Minty in action',
-    subtitle: 'Watch how Minty streamlines your daily closing workflow.',
-    videoUrl: '/assets/deployed-assets/minty-mascot-wave.mp4',
-  },
+helpsYou: {
+  title: 'Minty helps you to',
+  cards: [
+    {
+      icon: '/assets/icon-check.svg', // Update with your actual asset path
+      alt: 'Checkmark icon',
+      body: 'Account accurately, and less stress around daily figures.',
+    },
+    {
+      icon: '/assets/icon-sync.svg', // Update with your actual asset path
+      alt: 'Sync circle icon',
+      body: 'Trust your daily numbers and sync them directly to Xero.',
+    },
+    {
+      icon: '/assets/icon-plan.svg', // Update with your actual asset path
+      alt: 'Plan card icon',
+      body: 'Plan all your shop in one place.',
+    },
+  ],
+},
+demo: {
+  badge: 'WATCH HOW IT WORKS',
+  title: 'See Minty in action',
+  subtitle: 'A short walkthrough of daily closing, syncing to Xero, and reviewing your shop — all in under two minutes.',
+  videoUrl: 'https://www.youtube.com/embed/your-video-id', // Replace with actual embed URL
+},
+seeHowItWorks: {
+  title: 'See how Minty works.',
+  buttonText: 'Open the demo →',
+}
 };
