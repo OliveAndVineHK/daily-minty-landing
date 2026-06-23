@@ -19,5 +19,6 @@ export default function Container({
     <Tag className={cn('mx-auto w-full max-w-[1140px] px-7', className)}>
       {children}
     </Tag>
+    
   );
 }
