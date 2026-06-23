@@ -8,7 +8,7 @@ export default function PricingFAQSupport() {
           Still have questions?
         </h3>
         <p className="text-gray-400 text-xs md:text-sm mb-8 max-w-[420px] mx-auto leading-relaxed">
-          Check our help centre or reach out — we'll match you with the right plan.
+          {"Check our help centre or reach out — we'll match you with the right plan."}
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 items-center">
