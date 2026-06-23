@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import type { FaqItem, FaqBlock } from '@/config/faq';
-import PermissionsTable from './PermissionsTable';
+//import PermissionsTable from './PermissionsTable';
 
 export default function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -84,8 +84,8 @@ function renderBlocks(blocks: FaqBlock[]) {
             {block.items.map((it, i) => <li key={i} className="mb-2">{it}</li>)}
           </ol>
         );
-      case 'permissions-table':
-        return <PermissionsTable key={idx} />;
+      // case 'permissions-table':
+      //   return <PermissionsTable key={idx} />;
     }
   });
 }
