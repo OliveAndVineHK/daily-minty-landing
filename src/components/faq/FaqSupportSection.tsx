@@ -16,7 +16,7 @@ export default function FAQSupportSection() {
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
             <Link 
-              href="/support"
+              href="/contact"
               className="bg-[#00CBB0] hover:bg-[#00b59d] text-white font-bold text-xs md:text-sm px-6 py-3 rounded-full shadow-md transition-all duration-150"
             >
               Contact Support
