@@ -35,7 +35,7 @@ export default function Navbar() {
       <Container className="flex items-center justify-between py-[18px]">
         <Link href="/" className="inline-flex items-center" aria-label="Daily Minty home">
           <Image
-            src="/assets/minty-logo.png"
+            src="/assets/deployed-assets/minty-logo-v2.png"
             alt="Daily Minty"
             width={132}
             height={44}

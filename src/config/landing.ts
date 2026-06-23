@@ -5,7 +5,7 @@ export const landingContent = {
     lede: 'No more lost receipts, no more missing numbers.',
     primaryCta: {
       label: 'Get started with Minty',
-      href: '/get-started',
+      href: '/getstarted',
     },
     secondaryCta: {
       label: 'See how it works',
@@ -111,5 +111,7 @@ demo: {
 seeHowItWorks: {
   title: 'See how Minty works.',
   buttonText: 'Open the demo →',
+  image: 'assets/deployed-assets/minty-mascot-wave.mp4'
+  
 }
 };

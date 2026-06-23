@@ -21,9 +21,21 @@ export default function SeeHowItWorksSection() {
           {seeHowItWorks.buttonText}
         </Button>
 
-        <div 
-          className="w-full max-w-[500px] aspect-[1.8/1] bg-white rounded-[32px] shadow-[0_10px_30px_rgba(0,0,0,0.06)]" 
-        />
+        <div className="w-full max-w-[600px] aspect-[1.7/1] bg-white rounded-[32px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden">
+            <video 
+            className="w-full h-full object-cover" 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            >
+            <source src={`/${seeHowItWorks.image}`} type="video/mp4" />
+            Your browser does not support the video tag.
+            </video>
+        </div>
+        
+    
+
       </Container>
     </section>
   );
