@@ -16,9 +16,8 @@ export default function GuidesSection() {
   const activeGuide = guides.items.find((item) => item.id === activeGuideId);
 
   return (
-    <section className="bg-white py-16 font-sans">
+    <section className="bg-white py-16 font-sans" id="guide">
       <Container>
-        {/* Header Title & Subtitle */}
         <div className="text-left mb-10">
           <h2 className="text-[#113B4A] text-[28px] md:text-[32px] font-extrabold tracking-tight mb-2">
             {guides.title}
@@ -28,9 +27,7 @@ export default function GuidesSection() {
           </p>
         </div>
 
-        {/* --- CONDITIONAL VIEW SWITCHER --- */}
         {activeGuide ? (
-          /* PLAYBACK VIEW (Matches image_c7e725.png) */
           <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-[0_4px_24px_rgba(17,59,74,0.02)] animate-fadeIn">
             
             {/* Metadata Row + Close Button */}
@@ -48,7 +45,6 @@ export default function GuidesSection() {
                   <span className="text-[14px]">🕒</span> {activeGuide.duration}
                 </span>
                 
-                {/* Reset state on click to go back to grid */}
                 <button 
                   onClick={() => setActiveGuideId(null)}
                   className="w-7 h-7 bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-600 rounded-full flex items-center justify-center transition-all duration-150 text-[11px] font-bold shadow-xs"
@@ -76,7 +72,6 @@ export default function GuidesSection() {
 
           </div>
         ) : (
-          /* GRID LISTING VIEW (Matches your existing cards framework) */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fadeIn">
             {guides.items.map((guide) => (
               <div 

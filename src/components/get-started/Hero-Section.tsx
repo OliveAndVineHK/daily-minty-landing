@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { getStartedContent } from '@/config/get-started';
+import { siteConfig } from '@/config/site';
 
 
 export default function HeroSection() {
@@ -15,15 +16,12 @@ export default function HeroSection() {
   <main className="flex-grow pt-6 md:pt-10 pb-24 font-sans">
     <Container>
       
-      {/* CHANGED: Changed mb-20 to mb-10 on mobile (md:mb-20) 
-        CHANGED: Changed overflow-visible to overflow-hidden on mobile (lg:overflow-visible)
-      */}
       <section className="relative bg-[#00CBB0] rounded-[32px] px-6 py-10 md:p-16 text-white overflow-hidden lg:overflow-visible mb-10 md:mb-20 shadow-sm">
         
-        {/* NEW WRAPPER GRID: Seamlessly stacks on mobile, splits into two columns on desktop */}
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
-          {/* Text Content Column */}
+
           <div className="lg:col-span-7 max-w-[550px]">
             <h1 className="text-[32px] md:text-[48px] font-extrabold tracking-tight leading-tight mb-4 flex items-center flex-wrap gap-x-3">
               {hero.title}
@@ -41,19 +39,15 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <Button className="bg-white text-[#113B4A] hover:bg-white/90 font-bold px-6 py-3 rounded-full text-[14px] shadow-sm transition-all duration-200">
+              <Button className="bg-white text-[#113B4A] hover:bg-white/90 font-bold px-6 py-3 rounded-full text-[14px] shadow-sm transition-all duration-200" href={hero.primaryBtnHref}>
                 {hero.primaryBtn}
               </Button>
-              <Button className="bg-transparent text-white border-2 border-white/40 hover:border-white hover:bg-white/10 font-bold px-6 py-2.5 rounded-full text-[14px] transition-all duration-200">
+              <Button className="bg-transparent text-white border-2 border-white/40 hover:border-white hover:bg-white/10 font-bold px-6 py-2.5 rounded-full text-[14px] transition-all duration-200" href={siteConfig.loginUrl}>
                 {hero.secondaryBtn}
               </Button>
             </div>
           </div>
 
-          {/* Mascot Column 
-            CHANGED: Uses normal block flow on mobile/tablet (centered below the text), 
-            and safely transitions to the absolute floating placement ONLY on large desktop screens.
-          */}
             <div className="lg:col-span-5 flex justify-center md:justify-end md:pr-8 lg:pr-0 lg:absolute lg:right-10 lg:bottom-[-50px] w-full max-w-[220px] md:max-w-[260px] lg:w-[340px] mx-auto lg:mx-0 pointer-events-none z-20">
                 <Image
                     src={hero.mascotSrc}
@@ -68,7 +62,6 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* --- BENEFITS SECTION --- */}
       <section className="text-center">
         <h2 className="text-[#113B4A] text-[24px] md:text-[28px] font-extrabold tracking-tight mb-10">
           {benefits.title}
