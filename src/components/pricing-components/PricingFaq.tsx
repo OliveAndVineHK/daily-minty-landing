@@ -23,6 +23,7 @@ export default function PricingFAQSupport() {
             className="bg-[#113B4A] hover:bg-[#1A4B5D] text-white font-bold px-8 py-3 rounded-full text-[13px] shadow-sm transition-all duration-200"
           >
             Contact Support
+            
           </Link>
         </div>
       </div>
