@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import Container from '@/components/ui/Container';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 function navLinkClass(variant?: 'text' | 'primary' | 'dark'): string {
   if (variant === 'primary') {
@@ -131,21 +132,22 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {isOpen ?? (
+      {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-ink/10 p-4 flex flex-col gap-3 shadow-lg z-[60]">
-          {/* Map through your links */}
-          {visible.map((link) => (
-            <Link 
-              key={link.key} 
-              href={link.href} 
-              onClick={() => setIsOpen(false)}
-              className="px-4 py-3 rounded-xl font-semibold text-ink hover:bg-ink/[0.05] transition-colors"
-            >
-              {link.label}
-            </Link>
+          
+          {visible
+            .filter((link) => link.key !== 'get-started' && link.key !== 'login')
+            .map((link) => (
+              <Link 
+                key={link.key} 
+                href={link.href} 
+                onClick={() => setIsOpen(false)}
+                className="px-4 py-3 rounded-xl font-semibold text-ink hover:bg-ink/[0.05] transition-colors"
+              >
+                {link.label}
+              </Link>
           ))}
 
-          {/* Consistent "Get Started" and "Log In" Buttons */}
           <div className="flex flex-col gap-3 mt-4">
             <Link 
               href="/getstarted" 
@@ -155,7 +157,7 @@ export default function Navbar() {
               Get Started with Minty
             </Link>
             <Link 
-              href="/login" 
+              href={siteConfig.loginUrl} 
               onClick={() => setIsOpen(false)}
               className="bg-[#113B4A] text-white px-6 py-3 rounded-full font-bold text-center hover:bg-[#1a5569] transition-colors"
             >

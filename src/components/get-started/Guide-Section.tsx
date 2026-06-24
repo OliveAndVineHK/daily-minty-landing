@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { getStartedContent } from '@/config/get-started';
 import { cn } from '@/lib/utils';
+import { Clock } from 'lucide-react';
 
 export default function GuidesSection() {
   const { guides } = getStartedContent;
@@ -29,8 +30,6 @@ export default function GuidesSection() {
 
         {activeGuide ? (
           <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-[0_4px_24px_rgba(17,59,74,0.02)] animate-fadeIn">
-            
-            {/* Metadata Row + Close Button */}
             <div className="flex justify-between items-center mb-4">
               <span className={cn(
                 "text-xs font-bold px-3 py-1 rounded-full",
@@ -40,9 +39,10 @@ export default function GuidesSection() {
                 {activeGuide.category}
               </span>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4">          
                 <span className="text-xs text-gray-400 flex items-center gap-1">
-                  <span className="text-[14px]">🕒</span> {activeGuide.duration}
+                  <Clock size={14} className="text-gray-400" /> 
+                  {activeGuide.duration}
                 </span>
                 
                 <button 
@@ -55,7 +55,6 @@ export default function GuidesSection() {
               </div>
             </div>
 
-            {/* Guide Title Context */}
             <h3 className="text-[#113B4A] text-xl font-extrabold leading-snug mb-1">
               {activeGuide.title}
             </h3>
@@ -78,7 +77,6 @@ export default function GuidesSection() {
                 key={guide.id}
                 className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col transition-all duration-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
               >
-                {/* Top Meta Details Row */}
                 <div className="flex justify-between items-center mb-4">
                   <span className={cn(
                     "text-xs font-bold px-3 py-1 rounded-full",
@@ -88,19 +86,17 @@ export default function GuidesSection() {
                     {guide.category}
                   </span>
                   <span className="text-xs text-gray-400 flex items-center gap-1">
-                    <span className="text-[14px]">🕒</span> {guide.duration}
+                    <Clock size={14} className="text-gray-400" />  {guide.duration}
                   </span>
                 </div>
 
-                {/* Title & Description Context */}
+
                 <h3 className="text-[#113B4A] text-lg font-extrabold leading-snug mb-1">
                   {guide.title}
                 </h3>
                 <p className="text-gray-400 text-xs italic mb-6">
                   {guide.description}
                 </p>
-
-                {/* Video Thumbnail Wrapper with Click Trigger */}
                 <div 
                   onClick={() => setActiveGuideId(guide.id)}
                   className="relative aspect-[1.85/1] w-full rounded-2xl overflow-hidden cursor-pointer group shadow-sm"
