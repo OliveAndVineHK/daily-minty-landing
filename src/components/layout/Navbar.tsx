@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { navLinks, type NavLink } from '@/config/nav';
 import { cn } from '@/lib/utils';
 import Container from '@/components/ui/Container';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 function navLinkClass(variant?: 'text' | 'primary' | 'dark'): string {
   if (variant === 'primary') {
@@ -29,6 +31,7 @@ function isActive(pathname: string, link: NavLink): boolean {
 export default function Navbar() {
   const pathname = usePathname();
   const visible = navLinks.filter((l) => l.enabled);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="relative top-0 z-50 bg-white border-b border-ink/[0.06]" aria-label="Primary">
@@ -44,7 +47,13 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex gap-1.5 items-center max-md:hidden">
+        <button 
+          className="md:hidden p-2 text-ink"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X /> : <Menu />}
+        </button>
+        <div className="hidden md:flex gap-1.5 items-center">
           {visible.map((link) => {
             const active = isActive(pathname, link);
 
@@ -121,6 +130,43 @@ export default function Navbar() {
           })}
         </div>
       </Container>
+
+      {isOpen ? (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-ink/10 p-4 flex flex-col gap-3 shadow-lg z-[60]">
+          {/* Map through your links */}
+          {visible.map((link) => (
+            <Link 
+              key={link.key} 
+              href={link.href} 
+              onClick={() => setIsOpen(false)}
+              className="px-4 py-3 rounded-xl font-semibold text-ink hover:bg-ink/[0.05] transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Consistent "Get Started" and "Log In" Buttons */}
+          <div className="flex flex-col gap-3 mt-4">
+            <Link 
+              href="/getstarted" 
+              onClick={() => setIsOpen(false)}
+              className="bg-[#00CBB0] text-white px-6 py-3 rounded-full font-bold text-center hover:opacity-90 transition-opacity"
+            >
+              Get Started with Minty
+            </Link>
+            <Link 
+              href="/login" 
+              onClick={() => setIsOpen(false)}
+              className="bg-[#113B4A] text-white px-6 py-3 rounded-full font-bold text-center hover:bg-[#1a5569] transition-colors"
+            >
+              Log In
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <h1>TEst</h1>
+
+      )}
     </nav>
   );
 }

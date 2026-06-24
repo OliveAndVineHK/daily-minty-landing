@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { landingContent } from '@/config/landing';
+import { Wallet, ReceiptText, Menu, LucideIcon } from 'lucide-react';
+
+const iconMap: { [key: string]: LucideIcon } = {
+  Wallet: Wallet,
+  ReceiptText: Menu,
+};
 
 export default function OutcomeSection() {
   const { outcome } = landingContent;
@@ -20,6 +26,7 @@ export default function OutcomeSection() {
     <section className="bg-[#dcf3ec] py-20" aria-labelledby="outcome-title">
       <Container className="max-w-5xl mx-auto">
         
+        {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
           <span className="bg-[#bfeae0] text-[#00a896] text-xs font-bold tracking-wider px-4 py-1.5 rounded-full uppercase mb-4">
             The Solution
@@ -37,6 +44,7 @@ export default function OutcomeSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
           {outcome.cards.map((card, index) => {
             const theme = cardThemeStyles[index] || cardThemeStyles[0];
+            const IconComponent = iconMap[card.icon];
 
             return (
               <div
@@ -47,13 +55,15 @@ export default function OutcomeSection() {
                   <h3 className="text-[24px] font-bold text-white tracking-wide">
                     {card.title}
                   </h3>
+                  {/* Dynamic Icon Container */}
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                    <span className="material-symbols-outlined text-xs text-emerald-500 font-bold">
-                      {index === 0 ? "" : ""}
-                    </span>
+                    {IconComponent && (
+                      <IconComponent className={`${card.iconTextColor} w-5 h-5`} />
+                    )}
                   </div>
                 </div>
 
+                {/* Image Placeholder */}
                 <div className="bg-white rounded-t-[16px] flex-grow flex items-center justify-center overflow-hidden">
                   <div className="relative w-full h-full min-h-[140px]">
                     <Image
@@ -65,7 +75,6 @@ export default function OutcomeSection() {
                     />
                   </div>
                 </div>
-
               </div>
             );
           })}

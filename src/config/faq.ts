@@ -11,16 +11,15 @@ export type FaqBlock =
   | { type: 'ol'; items: string[] }
   | { type: 'permissions-table' };
 
-// 3. Define the core interface object for each individual FAQ card entry
+
 export interface FaqItem {
   id: string;
-  category: 'beginner' | 'intermediate' | 'accountant'; // Explicitly maps to your UI filter segments
+  category: 'beginner' | 'intermediate' | 'accountant';
   question: string;
-  wide?: boolean; // Set to true if a specific card needs to stretch full-width (md:col-span-2)
+  wide?: boolean; 
   body: FaqBlock[];
 }
 
-// 4. Complete FAQ dataset mapped directly from your design layout layers
 export const landingFaq: FaqItem[] = [
   {
     id: 'not-finished',

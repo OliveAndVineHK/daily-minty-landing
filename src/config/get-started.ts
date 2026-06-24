@@ -3,7 +3,9 @@ export const getStartedContent = {
     title: "Get started using",
     description: "Support guides and tutorials for first-time users — everything you need to be up and running today.",
     primaryBtn: "Try Minty for free",
+    primaryBtnHref: "/pricing",
     secondaryBtn: "Log In",
+    secondaryBtnHref: "",
     mascotSrc: "/assets/deployed-assets/minty-mascot-glasses.png", // Ensure this asset is in your folder
   },
   benefits: {
@@ -122,15 +124,15 @@ faqSection: {
         title: "Contact support",
         description: "Contact Olive and Vine Consulting for more information, personalised help, or to book an hour with a specialist.",
         linkText: "Send a message",
-        href: "#"
+        href: "/contact"
       },
       {
         type: "videos",
-        icon: "▶", // Replace with a Lucide or custom icon if desired
+        icon: "▶",
         title: "Watch video guides",
         description: "Follow along with a curated walkthrough covering every part of Minty — perfect for visual learners.",
         linkText: "Browse videos",
-        href: "#"
+        href: "#guide"
       }
     ]
   }
