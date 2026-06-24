@@ -66,7 +66,7 @@ export const landingContent = {
       image: '/assets/deployed-assets/sub-petty-cash.png',
       alt: 'Petty cash placeholder',
       // Added design tokens for the first card
-      icon: 'payments',
+      icon: 'Wallet',
       bgColor: 'bg-[#00cbb2]',
       iconTextColor: 'text-[#00cbb2]'
     },
@@ -76,7 +76,7 @@ export const landingContent = {
       image: '/assets/deployed-assets/sub-bill-payment.png',
       alt: 'Bill payment placeholder',
       // Added design tokens for the second card
-      icon: 'notes',
+      icon: 'ReceiptText',
       bgColor: 'bg-[#0f2d37]',
       iconTextColor: 'text-[#0f2d37]'
     },
@@ -86,17 +86,17 @@ helpsYou: {
   title: 'Minty helps you to',
   cards: [
     {
-      icon: '/assets/icon-check.svg', // Update with your actual asset path
+      icon: 'CheckCircle', 
       alt: 'Checkmark icon',
       body: 'Account accurately, and less stress around daily figures.',
     },
     {
-      icon: '/assets/icon-sync.svg', // Update with your actual asset path
+      icon: 'RefreshCw',
       alt: 'Sync circle icon',
       body: 'Trust your daily numbers and sync them directly to Xero.',
     },
     {
-      icon: '/assets/icon-plan.svg', // Update with your actual asset path
+      icon: 'CreditCard', 
       alt: 'Plan card icon',
       body: 'Plan all your shop in one place.',
     },
