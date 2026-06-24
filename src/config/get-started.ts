@@ -6,7 +6,7 @@ export const getStartedContent = {
     primaryBtnHref: "/pricing",
     secondaryBtn: "Log In",
     secondaryBtnHref: "",
-    mascotSrc: "/assets/deployed-assets/minty-mascot-glasses.png", // Ensure this asset is in your folder
+    mascotSrc: "/assets/deployed-assets/minty-mascot-glasses.png",
   },
   benefits: {
     title: "What will you get from this page?",
@@ -120,7 +120,7 @@ faqSection: {
     supportCards: [
       {
         type: "support",
-        icon: "✉", // Replace with a Lucide or custom icon if desired
+        icon: "✉", 
         title: "Contact support",
         description: "Contact Olive and Vine Consulting for more information, personalised help, or to book an hour with a specialist.",
         linkText: "Send a message",
