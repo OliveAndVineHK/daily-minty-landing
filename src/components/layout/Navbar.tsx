@@ -131,7 +131,7 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {isOpen ? (
+      {isOpen ?? (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-ink/10 p-4 flex flex-col gap-3 shadow-lg z-[60]">
           {/* Map through your links */}
           {visible.map((link) => (
@@ -163,9 +163,6 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      ) : (
-        <h1>TEst</h1>
-
       )}
     </nav>
   );
