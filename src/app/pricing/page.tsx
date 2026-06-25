@@ -20,7 +20,7 @@ export default function PricingPage() {
   );
 }
 
-{/* 
+{/* push
 'use client';
 
 import { useState } from 'react';
