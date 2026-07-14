@@ -33,6 +33,7 @@ export default function SeeHowItWorksSection() {
 
         <Button
           className="bg-white text-[#113B4A] hover:bg-white/90 font-bold px-6 py-2.5 md:py-3 rounded-full text-[13px] md:text-[14px] shadow-sm transition-all duration-200 mb-8 md:mb-12"
+          href='/'
         >
           {seeHowItWorks.buttonText}
         </Button>
