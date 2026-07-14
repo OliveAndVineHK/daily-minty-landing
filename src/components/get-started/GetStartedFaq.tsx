@@ -4,11 +4,12 @@ import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { getStartedContent } from '@/config/get-started';
-
+import FadeContent from '@/animations/landing/fadeanim';
 export default function GetStartedFaqSection() {
   const { faqSection } = getStartedContent;
 
   return (
+    <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
     <section className="bg-[#F4F7F9] py-20 font-sans">
       <Container className="max-w-[950px]">
         <div className="text-center mb-12">
@@ -27,9 +28,10 @@ export default function GetStartedFaqSection() {
 
           <div className="flex flex-col mb-8">
             {faqSection.faqBox.items.map((item) => (
-              <div 
-                key={item.id} 
-                className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-b-0 cursor-pointer group"
+              <Link
+                key={item.id}
+                href={`/resources/support?faqId=${encodeURIComponent(item.question)}`}
+                className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-b-0 cursor-pointer group no-underline"
               >
                 <div className="w-6 h-6 bg-[#E6FAF7] text-[#00CBB0] text-[11px] font-bold rounded-full flex items-center justify-center shrink-0 group-hover:bg-[#00CBB0] group-hover:text-white transition-colors duration-150">
                   Q
@@ -37,16 +39,17 @@ export default function GetStartedFaqSection() {
                 <p className="text-[#113B4A] font-medium text-[14px] leading-snug group-hover:text-[#00CBB0] transition-colors duration-150">
                   {item.question}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="flex justify-center">
-            <Button 
-              className="bg-transparent text-[#113B4A] border border-gray-200 hover:bg-gray-50 font-bold px-6 py-2.5 rounded-full text-[13px] transition-all duration-200 inline-flex items-center gap-1.5 shadow-xs"
+            <Link
+              href="/resources/support"
+              className="bg-transparent text-[#113B4A] border border-gray-200 hover:bg-gray-50 font-bold px-6 py-2.5 rounded-full text-[13px] transition-all duration-200 inline-flex items-center gap-1.5 shadow-xs no-underline"
             >
               {faqSection.faqBox.buttonText} <span>→</span>
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -84,5 +87,6 @@ export default function GetStartedFaqSection() {
         </div>
       </Container>
     </section>
+    </FadeContent>
   );
 }

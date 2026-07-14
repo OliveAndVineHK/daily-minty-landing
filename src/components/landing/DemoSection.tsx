@@ -1,16 +1,43 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Container from '@/components/ui/Container';
 import { landingContent } from '@/config/landing';
+import FadeContent from '@/animations/landing/fadeanim';
 // Test
 export default function DemoSection() {
   const { demo } = landingContent;
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoCardRef = useRef<HTMLDivElement>(null);
+
+  // Extract video ID from YouTube embed URL
+  const videoId = demo.videoUrl.split('/embed/')[1];
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  // Autoplay the demo once the card scrolls into view. Browsers only allow
+  // autoplay when the video is muted, so the iframe URL includes mute=1.
+  useEffect(() => {
+    const el = videoCardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsPlaying(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="bg-[#EBF7F4] py-20" aria-labelledby="demo-title">
-      <Container className="flex flex-col items-center text-center">
+    <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
+    <section className="bg-[#EBF7F4] py-10" aria-labelledby="demo-title">
+      <Container className="flex flex-col items-center text-center mb-10">
         
         {/* Top Pill Badge */}
         <div className="inline-flex items-center gap-1.5 bg-[#D2EFE9] text-[#00A884] text-[11px] font-bold tracking-wider uppercase px-4 py-1.5 rounded-full mb-5">
@@ -29,12 +56,12 @@ export default function DemoSection() {
         </p>
 
         {/* Video Player Floating Card */}
-        <div className="w-full max-w-4xl aspect-[16/10] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(17,59,74,0.08)] bg-white relative">
+        <div ref={videoCardRef} className="w-full max-w-4xl aspect-[16/10] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(17,59,74,0.08)] bg-white relative">
           {isPlaying ? (
             <iframe
               width="100%"
               height="100%"
-              src={`${demo.videoUrl}?autoplay=1`}
+              src={`${demo.videoUrl}?autoplay=1&mute=1`}
               title="Minty Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -46,22 +73,14 @@ export default function DemoSection() {
               className="w-full h-full relative block group overflow-hidden"
               aria-label="Play demo video"
             >
-              {/* Background Canvas: Gradient + CSS Diagonal Stripe Pattern */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-tr from-[#BBEADF] via-[#CEF0E8] to-[#E2F7F2] opacity-95 group-hover:opacity-100 transition-opacity duration-200"
+              {/* Background: YouTube Thumbnail with Dark Overlay */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage: `
-                    repeating-linear-gradient(
-                      -45deg,
-                      transparent,
-                      transparent 10px,
-                      rgba(255, 255, 255, 0.25) 10px,
-                      rgba(255, 255, 255, 0.25) 12px
-                    ),
-                    linear-gradient(to top right, #BBEADF, #E2F7F2)
-                  `
+                  backgroundImage: `url('${thumbnailUrl}')`,
                 }}
               />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-200" />
 
               {/* Centered Circular White Play Button with Soft Backdrop Shadow */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -79,12 +98,12 @@ export default function DemoSection() {
 
               {/* Bottom Left Badge overlay */}
               <div className="absolute bottom-6 left-6 bg-white text-[#113B4A] text-xs font-bold px-4 py-2 rounded-full shadow-sm">
-                Onboarding · Chapter 1
+                DailyMinty
               </div>
               
               {/* Bottom Right Duration overlay */}
               <div className="absolute bottom-6 right-6 bg-[#2B4750] text-white text-xs font-bold px-3 py-2 rounded-xl shadow-sm">
-                1:48
+                0:40
               </div>
             </button>
           )}
@@ -92,5 +111,6 @@ export default function DemoSection() {
 
       </Container>
     </section>
+    </FadeContent>
   );
 }

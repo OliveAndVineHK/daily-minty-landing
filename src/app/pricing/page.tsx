@@ -2,15 +2,15 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import PricingHero from '@/components/pricing-components/PricingHero';
-import PricingGrid from '@/components/pricing-components/PricingGrid';
-import PricingFAQSupport from '@/components/pricing-components/PricingFaq';
+import PricingHero from '@/components/pricing/PricingHero';
+import PricingGrid from '@/components/pricing/PricingGrid';
+import PricingFAQSupport from '@/components/pricing/PricingFaq';
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FBFC]">
       <Navbar />
-      <main className="flex-grow pt-6 md:pt-10 pb-24 font-sans">
+      <main className="flex-grow pt-6 md:pt-10 pb-0 font-sans">
         <PricingHero />
         <PricingGrid />
         <PricingFAQSupport />

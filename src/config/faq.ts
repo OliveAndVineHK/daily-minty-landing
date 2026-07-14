@@ -4,13 +4,17 @@ export type ListItem =
   | { strong: string; text: string };
 
 // 2. Define block types to mirror your FaqAccordion component's switch-case statement
+export type PermissionRow = {
+  name: string;
+  roles: { CASHIER: boolean; 'SHOP MANAGER': boolean; ACCOUNTANT: boolean; ADMIN: boolean };
+};
+
 export type FaqBlock =
   | { type: 'p'; text: string }
   | { type: 'p-strong'; text: string }
   | { type: 'ul'; items: ListItem[] }
   | { type: 'ol'; items: string[] }
-  | { type: 'permissions-table' };
-
+  | { type: 'permissions-table'; permissions?: PermissionRow[] };
 
 export interface FaqItem {
   id: string;
@@ -173,5 +177,30 @@ export const landingFaq: FaqItem[] = [
     body: [
       { type: 'p-strong', text: "Yes. System compliance data downloads cleanly into standardized CSV/XLS format matrices built for direct general ledger injection maps." }
     ]
-  }
+  },
+
+  {
+    id: 'user-permissions',
+    category: 'accountant',
+    question: "Why do different users see different things in Minty?",
+    wide: true,
+    body: [
+      {
+        type: 'p',
+        text: "Minty uses role-based permissions so each user sees only what they need. This prevents mistakes and reduces confusion."
+      },
+      {
+        type: 'permissions-table',
+        permissions: [
+          { name: 'Prepare daily report', roles: { CASHIER: true, 'SHOP MANAGER': true, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'View daily report you created', roles: { CASHIER: true, 'SHOP MANAGER': true, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'View daily report of the whole shop', roles: { CASHIER: false, 'SHOP MANAGER': true, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'Sales method setting', roles: { CASHIER: false, 'SHOP MANAGER': false, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'Expense code setting', roles: { CASHIER: false, 'SHOP MANAGER': false, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'Publish to Xero', roles: { CASHIER: false, 'SHOP MANAGER': false, ACCOUNTANT: true, ADMIN: true } },
+          { name: 'Connect & disconnect to Xero', roles: { CASHIER: false, 'SHOP MANAGER': false, ACCOUNTANT: false, ADMIN: true } }
+        ]
+      }
+    ]
+  },
 ];

@@ -5,13 +5,13 @@ export const landingContent = {
     lede: 'No more lost receipts, no more missing numbers.',
     primaryCta: {
       label: 'Get started with Minty',
-      href: '/getstarted',
+      href: '/get-started',
     },
     secondaryCta: {
       label: 'See how it works',
-      href: '#how-it-works',
+      href: '#see-how-it-works',
     },
-    trustText: 'Sync directly with Xero',
+    trustText: {before: 'Sync directly with',highlighted: 'Xero'},
     imageAlt: 'Daily Minty hero image showing a cat with a laptop and phone',
     image: '/assets/deployed-assets/hero-cat-laptop-phone.png',
   },
@@ -63,22 +63,24 @@ export const landingContent = {
     {
       key: 'petty-cash',
       title: 'Petty Cash',
-      image: '/assets/deployed-assets/sub-petty-cash.png',
+      image: '/assets/deployed-assets/landing_payment.png',
       alt: 'Petty cash placeholder',
       // Added design tokens for the first card
       icon: 'Wallet',
       bgColor: 'bg-[#00cbb2]',
-      iconTextColor: 'text-[#00cbb2]'
+      iconTextColor: 'text-[#00cbb2]',
+      href: 'https://www.youtube.com/watch?v=3_TVkcyzEQs'
     },
     {
       key: 'bill-payment',
-      title: 'Bill Payment',
-      image: '/assets/deployed-assets/sub-bill-payment.png',
+      title: 'Payment',
+      image: '/assets/deployed-assets/landing_petty.png',
       alt: 'Bill payment placeholder',
       // Added design tokens for the second card
       icon: 'ReceiptText',
       bgColor: 'bg-[#0f2d37]',
-      iconTextColor: 'text-[#0f2d37]'
+      iconTextColor: 'text-[#0f2d37]',
+      href: 'https://www.youtube.com/watch?v=fucuzlKQwDU'
     },
   ],
 },
@@ -105,8 +107,8 @@ helpsYou: {
 demo: {
   badge: 'WATCH HOW IT WORKS',
   title: 'See Minty in action',
-  subtitle: 'A short walkthrough of daily closing, syncing to Xero, and reviewing your shop — all in under two minutes.',
-  videoUrl: 'https://www.youtube.com/embed/your-video-id', // Replace with actual embed URL
+  subtitle: '',
+  videoUrl: 'https://www.youtube.com/embed/LZVNOp6YTzE',
 },
 seeHowItWorks: {
   title: 'See how Minty works.',

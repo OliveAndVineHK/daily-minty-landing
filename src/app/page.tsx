@@ -8,9 +8,8 @@ import HowItWorksSection from '@/components/landing/HowItWorksSection';
 import HelpsYouSection from '@/components/landing/HelpsYouSection';
 import DemoSection from '@/components/landing/DemoSection';
 import SeeHow from '@/components/landing/SeeHowItWorks';
-
 export const metadata: Metadata = {
-  title: 'Daily Minty — Daily closing, finally calm.',
+  title: 'Daily Minty',
   description:
     'Daily Minty makes daily cash closing simple. Petty cash, bill payment, and Xero sync in one calm dashboard for small business owners.',
   alternates: { canonical: '/' },
@@ -30,6 +29,8 @@ export default function HomePage() {
         <SeeHow />
       </main>
       <Footer />
+      
     </>
   );
 }
+// 2026 - 2027

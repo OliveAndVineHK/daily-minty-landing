@@ -27,6 +27,7 @@ export const getStartedContent = {
   },
   guides: {
   title: "Getting started guides",
+  titleAccent: "guides",
   subtitle: "Short, practical tutorials to help you master Minty step by step.",
   items: [
     {
@@ -63,7 +64,7 @@ export const getStartedContent = {
       title: "4. Introducing Petty Cash Module",
       description: '"What can you do with Petty Cash Module?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-4.png"
+      videoThumbnail: "/assets/deployed-assets/guide-thumb-4.png",
     },
     {
       id: 5,
@@ -86,17 +87,27 @@ export const getStartedContent = {
     {
       id: 7,
       category: "Bill Payment",
-      duration: "5 min",
+      duration: "40 sec",
       title: "7. Introducing Payment Module",
       description: '"How should I manage bills and payables?"',
       badge: "B",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-7.png"
+      videoThumbnail: "/assets/deployed-assets/guide-thumb-7.png",
+      videoUrl: "https://www.youtube.com/watch?v=fucuzlKQwDU"
     },
     {
       id: 8,
       category: "Getting Started",
       duration: "4 min",
       title: "8. How to add and manage users",
+      description: '"How can my team use Minty together?"',
+      badge: "",
+      videoThumbnail: "/assets/deployed-assets/guide-thumb-8.png"
+    },
+    {
+      id: 9,
+      category: "Petty Cash",
+      duration: "4 min",
+      title: "9. Introducing Petty Cash",
       description: '"How can my team use Minty together?"',
       badge: "",
       videoThumbnail: "/assets/deployed-assets/guide-thumb-8.png"
@@ -112,7 +123,7 @@ faqSection: {
       items: [
         { id: 1, question: "I didn’t finish today’s closing. Is that okay?" },
         { id: 2, question: "Do the numbers need to be exact?" },
-        { id: 3, question: "What if Minty and Xero show different numbers?" },
+        { id: 3, question: "What if numbers don’t match exactly?" },
         { id: 4, question: "What if I don’t have a receipt?" },
         { id: 5, question: "Is Minty monitoring or controlling my shop?" }
       ]
@@ -124,7 +135,7 @@ faqSection: {
         title: "Contact support",
         description: "Contact Olive and Vine Consulting for more information, personalised help, or to book an hour with a specialist.",
         linkText: "Send a message",
-        href: "/contact"
+        href: "/resources/contact"
       },
       {
         type: "videos",
