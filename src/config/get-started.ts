@@ -34,84 +34,43 @@ export const getStartedContent = {
       id: 1,
       category: "Getting Started",
       duration: "5 min",
-      title: "1. Set up your Minty account",
+      title: "1. Set up your Entity",
       description: '"I\'m new to Minty - where should I start?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-1.png"
+      videoThumbnail: "/assets/deployed-assets/setup_entity.png",
+      videoUrl: "https://www.youtube.com/watch?v=r6Eb6KHymqk"
+     
     },
     {
       id: 2,
       category: "Getting Started",
-      duration: "6 min",
-      title: "2. Set up your Entity",
-      description: '"What module(s) should I use?"',
+      duration: "4 min",
+      title: "2. Connecting Minty to Xero",
+      description: '"How do I connect Minty account with other accounting systems?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-2.png"
+      videoThumbnail: "/assets/deployed-assets/connecting_minty_xero.png",
+      videoUrl: "https://www.youtube.com/watch?v=tfhB71hNFUk"
     },
     {
       id: 3,
       category: "Getting Started",
       duration: "4 min",
-      title: "3. How to connect to accounting system (Xero)",
-      description: '"How do I connect Minty account with other accounting systems?"',
+      title: "3. Request payment and keep it on track",
+      description: '"How do I request a payment and stay on top of its status?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-3.png"
+      videoThumbnail: "/assets/deployed-assets/requestpayment_andkeep_ontrack.png",
+      videoUrl: "https://www.youtube.com/watch?v=ITPafwDPLcA"
     },
-    {
+     {
       id: 4,
-      category: "Petty Cash",
-      duration: "3 min",
-      title: "4. Introducing Petty Cash Module",
-      description: '"What can you do with Petty Cash Module?"',
-      badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-4.png",
-    },
-    {
-      id: 5,
-      category: "Petty Cash",
-      duration: "7 min",
-      title: "5. Petty Cash Tutorial – Daily Closing",
-      description: '"What exactly does \'daily closing\' mean in Minty?"',
-      badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-5.png"
-    },
-    {
-      id: 6,
-      category: "Petty Cash",
-      duration: "5 min",
-      title: "6. Petty Cash Tutorial – Publish Report",
-      description: '"How can I directly publish my data to accounting system?"',
-      badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-6.png"
-    },
-    {
-      id: 7,
-      category: "Bill Payment",
-      duration: "40 sec",
-      title: "7. Introducing Payment Module",
-      description: '"How should I manage bills and payables?"',
-      badge: "B",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-7.png",
-      videoUrl: "https://www.youtube.com/watch?v=fucuzlKQwDU"
-    },
-    {
-      id: 8,
       category: "Getting Started",
       duration: "4 min",
-      title: "8. How to add and manage users",
-      description: '"How can my team use Minty together?"',
+      title: "4. Record your payment full/partial",
+      description: '"How do I record a full or partial payment against an invoice?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-8.png"
+      videoThumbnail: "/assets/deployed-assets/recordyour_payment.png",
+      videoUrl: "https://www.youtube.com/watch?v=r9SSuTl-c4o"
     },
-    {
-      id: 9,
-      category: "Petty Cash",
-      duration: "4 min",
-      title: "9. Introducing Petty Cash",
-      description: '"How can my team use Minty together?"',
-      badge: "",
-      videoThumbnail: "/assets/deployed-assets/guide-thumb-8.png"
-    }
   ]
 },
 faqSection: {

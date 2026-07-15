@@ -91,9 +91,12 @@ export default function GuidesSection() {
                   // Extract video ID from YouTube URL and convert to embed format
                   let embedUrl = activeGuide.videoUrl;
                   if (activeGuide.videoUrl.includes('watch?v=')) {
-                    const videoId = activeGuide.videoUrl.split('watch?v=')[1];
+                    const videoId = activeGuide.videoUrl.split('watch?v=')[1].split('&')[0];
                     embedUrl = `https://www.youtube.com/embed/${videoId}`;
                   }
+                  // Auto-play as soon as the player mounts (after the thumbnail click).
+                  // Muted so browsers don't block autoplay.
+                  embedUrl += `${embedUrl.includes('?') ? '&' : '?'}autoplay=1&mute=1`;
                   return (
                     <iframe
                       width="100%"
