@@ -11,7 +11,7 @@ function FooterAnchor({
   href: string; external?: boolean; className?: string; children: React.ReactNode;
 }) {
   return external ? (
-    <a href={href} className={className} rel="noopener noreferrer">{children}</a>
+    <a href={href} className={className} target="_blank" rel="noopener noreferrer">{children}</a>
   ) : (
     <Link href={href} className={className}>{children}</Link>
   );

@@ -41,8 +41,9 @@ export default function FAQHero() {
           <Image
             src="/assets/deployed-assets/faq-professor-cat.png"
             alt="Minty Teacher Mascot"
-            width={240}
-            height={240}
+            width={420}
+            height={280}
+            sizes="(min-width: 1024px) 420px, (min-width: 768px) 280px, 150px"
             className="w-[150px] md:w-[280px] lg:w-[420px] h-auto object-contain"
             priority
           />

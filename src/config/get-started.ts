@@ -33,7 +33,7 @@ export const getStartedContent = {
     {
       id: 1,
       category: "Getting Started",
-      duration: "5 min",
+      duration: "1:22 min",
       title: "1. Set up your Entity",
       description: '"I\'m new to Minty - where should I start?"',
       badge: "",
@@ -44,7 +44,7 @@ export const getStartedContent = {
     {
       id: 2,
       category: "Getting Started",
-      duration: "4 min",
+      duration: "0:54 sec",
       title: "2. Connecting Minty to Xero",
       description: '"How do I connect Minty account with other accounting systems?"',
       badge: "",
@@ -54,7 +54,7 @@ export const getStartedContent = {
     {
       id: 3,
       category: "Getting Started",
-      duration: "4 min",
+      duration: "0:42 sec",
       title: "3. Request payment and keep it on track",
       description: '"How do I request a payment and stay on top of its status?"',
       badge: "",
@@ -64,7 +64,7 @@ export const getStartedContent = {
      {
       id: 4,
       category: "Getting Started",
-      duration: "4 min",
+      duration: "1:04 min",
       title: "4. Record your payment full/partial",
       description: '"How do I record a full or partial payment against an invoice?"',
       badge: "",
