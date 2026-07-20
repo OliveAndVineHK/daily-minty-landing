@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { getStartedContent } from '@/config/get-started';
 import { cn } from '@/lib/utils';
-import { Clock } from 'lucide-react';
+import { Clock, VolumeX } from 'lucide-react';
 import FadeContent from '@/animations/landing/fadeanim';
 
 export default function GuidesSection() {
@@ -14,7 +14,9 @@ export default function GuidesSection() {
   // Track which guide is currently being viewed/played
   const [activeGuideId, setActiveGuideId] = useState<number | null>(null);
   const [displayCount, setDisplayCount] = useState(4);
+  const [isMuted, setIsMuted] = useState(true);
   const activeCardRef = useRef<HTMLDivElement>(null);
+  const activeIframeRef = useRef<HTMLIFrameElement>(null);
 
   // Smooth-scroll to the playing video when a guide is selected
   useEffect(() => {
@@ -25,15 +27,45 @@ export default function GuidesSection() {
     }
   }, [activeGuideId]);
 
-  // Build a YouTube embed URL (with autoplay) from a guide's videoUrl
+  // Each newly opened video starts muted again.
+  useEffect(() => {
+    setIsMuted(true);
+  }, [activeGuideId]);
+
+  // Build a YouTube embed URL from a guide's videoUrl.
   const buildEmbedUrl = (videoUrl: string) => {
     let embedUrl = videoUrl;
     if (videoUrl.includes('watch?v=')) {
       const videoId = videoUrl.split('watch?v=')[1].split('&')[0];
       embedUrl = `https://www.youtube.com/embed/${videoId}`;
     }
-    // Auto-play as soon as the player mounts; muted so browsers don't block it.
-    return embedUrl + `${embedUrl.includes('?') ? '&' : '?'}autoplay=1&mute=1`;
+
+    const params = new URLSearchParams({
+      autoplay: '1',
+      // Muted is required or browsers block autoplay outright.
+      mute: '1',
+      // Hides the progress bar / timeline and the play-pause chrome.
+      controls: '0',
+      // Suppresses on-video annotation cards.
+      iv_load_policy: '3',
+      // Keeps end-screen suggestions within this channel.
+      rel: '0',
+      // Stops iOS from forcing the video into its native fullscreen player.
+      playsinline: '1',
+      // Required so we can postMessage the unmute command below.
+      enablejsapi: '1',
+    });
+
+    return `${embedUrl}${embedUrl.includes('?') ? '&' : '?'}${params}`;
+  };
+
+  // The player starts muted (see above), so offer an explicit way to turn sound on.
+  const unmute = () => {
+    activeIframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: 'unMute', args: [] }),
+      '*'
+    );
+    setIsMuted(false);
   };
 
   return (
@@ -106,6 +138,7 @@ export default function GuidesSection() {
                 /* Inline video player — expands full width, pushes other cards below */
                 <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#EDF3F1] border border-emerald-50/50 shadow-inner">
                   <iframe
+                    ref={activeIframeRef}
                     width="100%"
                     height="100%"
                     src={buildEmbedUrl(guide.videoUrl)}
@@ -114,6 +147,18 @@ export default function GuidesSection() {
                     allowFullScreen
                     className="w-full h-full border-0"
                   />
+
+                  {/* Controls are hidden, so surface an explicit unmute affordance. */}
+                  {isMuted && (
+                    <button
+                      onClick={unmute}
+                      className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 rounded-full bg-black/70 px-3.5 py-2 text-[12px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-black/85"
+                      aria-label="Turn on sound"
+                    >
+                      <VolumeX size={14} />
+                      Tap for sound
+                    </button>
+                  )}
                 </div>
               ) : (
                 <div
