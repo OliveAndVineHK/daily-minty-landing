@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Mail, MessageSquare, HelpCircle, CheckCircle2 } from 'lucide-react';
 import AnimatedContent from '@/animations/contact/heroanim';
 
@@ -12,19 +12,112 @@ const TOPICS = [
   'Something else',
 ];
 
+// Rate limiting: at most MAX_SUBMISSIONS within WINDOW_MS, plus a COOLDOWN_MS
+// gap between any two sends. Timestamps persist so a page reload can't reset it.
+const STORAGE_KEY = 'minty:contact:submissions';
+const MAX_SUBMISSIONS = 5;
+const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const COOLDOWN_MS = 30 * 1000; // 30 seconds between sends
+
 type Status = 'idle' | 'sending' | 'sent' | 'error';
+
+/** Reads submission timestamps, dropping any that fall outside the window. */
+function readRecentSubmissions(): number[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    const cutoff = Date.now() - WINDOW_MS;
+    return parsed.filter((t): t is number => typeof t === 'number' && t > cutoff);
+  } catch {
+    // Corrupt or unavailable storage (e.g. Safari private mode) — fail open.
+    return [];
+  }
+}
+
+function recordSubmission(timestamps: number[]) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(timestamps));
+  } catch {
+    // Storage unavailable — in-memory state still guards this session.
+  }
+}
 
 export default function ContactFormSection() {
   const [status, setStatus] = useState<Status>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [submissions, setSubmissions] = useState<number[]>([]);
+  const [secondsLeft, setSecondsLeft] = useState(0);
+  // When the form became fillable — the server rejects implausibly fast submits.
+  const renderedAt = useRef<number>(0);
+
+  // Hydrate from storage after mount so server and client markup match.
+  useEffect(() => {
+    setSubmissions(readRecentSubmissions());
+    renderedAt.current = Date.now();
+  }, []);
+
+  const lastSubmission = submissions.length ? Math.max(...submissions) : 0;
+  const hitLimit = submissions.length >= MAX_SUBMISSIONS;
+
+  // Tick down whichever block is active, so the UI re-enables on its own.
+  useEffect(() => {
+    if (!lastSubmission && !hitLimit) return;
+
+    const tick = () => {
+      const now = Date.now();
+      const cooldownEnds = lastSubmission + COOLDOWN_MS;
+      // When the cap is hit, the block lasts until the oldest entry ages out.
+      const windowEnds = hitLimit ? Math.min(...submissions) + WINDOW_MS : 0;
+      const until = Math.max(cooldownEnds, windowEnds);
+      const remaining = Math.ceil((until - now) / 1000);
+
+      if (remaining <= 0) {
+        setSecondsLeft(0);
+        // Re-read to drop entries that have aged out of the window.
+        setSubmissions(readRecentSubmissions());
+        return;
+      }
+      setSecondsLeft(remaining);
+    };
+
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [lastSubmission, hitLimit, submissions]);
+
+  const isRateLimited = secondsLeft > 0;
+
+  const limitMessage = useCallback(() => {
+    if (hitLimit) {
+      const mins = Math.ceil(secondsLeft / 60);
+      return `You've sent ${MAX_SUBMISSIONS} messages recently. Please wait ${mins} minute${
+        mins === 1 ? '' : 's'
+      } before sending another, or email us directly.`;
+    }
+    return `Please wait ${secondsLeft} second${secondsLeft === 1 ? '' : 's'} before sending another message.`;
+  }, [hitLimit, secondsLeft]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (isRateLimited) {
+      setErrorMessage(limitMessage());
+      setStatus('error');
+      return;
+    }
+
     setStatus('sending');
     setErrorMessage('');
 
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      renderedAt: renderedAt.current,
+    };
 
     try {
       const res = await fetch('/api/contact', {
@@ -35,10 +128,16 @@ export default function ContactFormSection() {
       const data = await res.json();
 
       if (!res.ok) {
+        // 429 from the server carries its own retry guidance.
         setErrorMessage(data.error ?? 'Something went wrong. Please try again.');
         setStatus('error');
         return;
       }
+
+      // Only count sends that actually succeeded.
+      const next = [...readRecentSubmissions(), Date.now()];
+      recordSubmission(next);
+      setSubmissions(next);
       setStatus('sent');
     } catch {
       setErrorMessage('Network error. Please check your connection and try again.');
@@ -74,12 +173,20 @@ export default function ContactFormSection() {
             <p className="text-sm text-[#4A7280]">
               Thanks for reaching out — we&apos;ve got your message and will reply to your inbox shortly.
             </p>
-            <button
-              onClick={() => setStatus('idle')}
-              className="text-[13px] font-bold text-[#00CBB0] hover:underline"
-            >
-              Send another message →
-            </button>
+            {isRateLimited ? (
+              <p className="text-[13px] text-[#4A7280]">
+                {hitLimit
+                  ? limitMessage()
+                  : `You can send another message in ${secondsLeft}s.`}
+              </p>
+            ) : (
+              <button
+                onClick={() => setStatus('idle')}
+                className="text-[13px] font-bold text-[#00CBB0] hover:underline"
+              >
+                Send another message →
+              </button>
+            )}
           </div>
         ) : (
         <form className="space-y-4 md:space-y-5" onSubmit={handleSubmit}>
@@ -136,10 +243,15 @@ export default function ContactFormSection() {
             <p className="text-[11px] md:text-[13px] text-[#4A7280]">By submitting, you agree to our <a href="#" className="text-[#00CBB0] underline">privacy policy</a>. We&apos;ll only use your details to reply to you.</p>
             <button
               type="submit"
-              disabled={status === 'sending'}
+              disabled={status === 'sending' || isRateLimited}
+              title={isRateLimited ? limitMessage() : undefined}
               className="bg-[#00CBB0] text-white px-6 md:px-8 py-2.5 md:py-3.5 rounded-full font-bold text-[12px] md:text-sm hover:bg-[#00B59D] transition-colors shadow-lg shadow-[#00CBB0]/20 whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {status === 'sending' ? 'Sending…' : 'Send message →'}
+              {status === 'sending'
+                ? 'Sending…'
+                : isRateLimited
+                  ? `Wait ${secondsLeft}s…`
+                  : 'Send message →'}
             </button>
           </div>
         </form>
