@@ -24,7 +24,7 @@ export default function SeeHowItWorksSection() {
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-    <section id="see-how-it-works" className="bg-[#34c9b1] pt-12 md:pt-20 pb-12 md:pb-20 text-center flex flex-col items-center">
+    <section id="see-how-it-works" className="bg-[#04d1b9] pt-12 md:pt-20 pb-12 md:pb-20 text-center flex flex-col items-center">
       <Container className="flex flex-col items-center mb-0">
 
         <h2 className="text-[28px] md:text-[40px] font-extrabold text-white mb-4 md:mb-6 tracking-tight">
@@ -41,7 +41,7 @@ export default function SeeHowItWorksSection() {
         {/* Teal (#00CCB1) baked into the video — opaque, so it plays with no black box
             on every browser and device including iOS/Safari. Container teal matches for
             seamless edges. */}
-        <div className="w-full max-w-[400px] md:max-w-[600px] aspect-[1.5/1] md:aspect-[1.7/1] rounded-[24px] md:rounded-[32px] overflow-hidden select-none pointer-events-none bg-[#34c9b1] isolate transform translate-z-0"> 
+        <div className="w-full max-w-[400px] md:max-w-[600px] aspect-[1.5/1] md:aspect-[1.7/1] rounded-[24px] md:rounded-[32px] overflow-hidden select-none pointer-events-none bg-[#04d1b9] isolate transform translate-z-0"> 
             {/* <Image
               src="/assets/deployed-assets/minty-transparent-final.gif"
               alt="Minty mascot waving"
@@ -60,7 +60,7 @@ export default function SeeHowItWorksSection() {
               controls={false}
               className="w-full h-full object-contain"
             >
-              <source src="/assets/deployed-assets/minty-video-final.mp4" type="video/mp4" />
+              <source src="/assets/deployed-assets/mingfinal.mp4" type="video/mp4" />
             </video>
    
     
