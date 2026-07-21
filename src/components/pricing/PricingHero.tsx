@@ -50,7 +50,7 @@ export default function PricingHero() {
                 width={720}
                 height={720}
                 priority
-                className="w-full h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)]"
+                className="w-full h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] motion-safe:animate-cat-float"
             />
         </div>
 
