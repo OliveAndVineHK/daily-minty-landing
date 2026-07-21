@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { getStartedContent } from '@/config/get-started';
 import { cn } from '@/lib/utils';
-import { Clock, VolumeX } from 'lucide-react';
+import { Clock, VolumeX, Maximize, Minimize } from 'lucide-react';
 import FadeContent from '@/animations/landing/fadeanim';
 
 export default function GuidesSection() {
@@ -15,8 +15,10 @@ export default function GuidesSection() {
   const [activeGuideId, setActiveGuideId] = useState<number | null>(null);
   const [displayCount, setDisplayCount] = useState(4);
   const [isMuted, setIsMuted] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const activeCardRef = useRef<HTMLDivElement>(null);
   const activeIframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
 
   // Smooth-scroll to the playing video when a guide is selected
   useEffect(() => {
@@ -31,6 +33,77 @@ export default function GuidesSection() {
   useEffect(() => {
     setIsMuted(true);
   }, [activeGuideId]);
+
+  // Closing a guide should never leave us stuck in fullscreen.
+  useEffect(() => {
+    if (!activeGuideId && document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    }
+    setIsFullscreen(false);
+  }, [activeGuideId]);
+
+  // Keep our state in sync when the user leaves fullscreen via Esc or the
+  // browser's own chrome rather than our button.
+  useEffect(() => {
+    const sync = () => setIsFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener('fullscreenchange', sync);
+    return () => document.removeEventListener('fullscreenchange', sync);
+  }, []);
+
+  // iOS Safari refuses requestFullscreen on anything but a <video>, so when the
+  // real API is unavailable we fall back to a fixed, viewport-filling overlay.
+  useEffect(() => {
+    if (!isFullscreen || document.fullscreenElement) return;
+
+    // `filter` / `transform` / `will-change` on an ancestor make it the
+    // containing block for our fixed overlay, which would then be clipped to
+    // the card instead of the viewport. FadeContent sets exactly those, so
+    // strip them for the duration (the fade has long since settled at blur(0),
+    // so this is visually a no-op) and restore them on exit.
+    const patched: Array<[HTMLElement, string, string, string]> = [];
+    for (let el = playerRef.current?.parentElement; el; el = el.parentElement) {
+      const s = getComputedStyle(el);
+      if (s.filter === 'none' && s.transform === 'none' && s.willChange === 'auto') continue;
+      patched.push([el, el.style.filter, el.style.transform, el.style.willChange]);
+      el.style.filter = 'none';
+      el.style.transform = 'none';
+      el.style.willChange = 'auto';
+    }
+
+    // The fallback has no Esc handling of its own, so wire one up.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsFullscreen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+      for (const [el, filter, transform, willChange] of patched) {
+        el.style.filter = filter;
+        el.style.transform = transform;
+        el.style.willChange = willChange;
+      }
+    };
+  }, [isFullscreen]);
+
+  const toggleFullscreen = () => {
+    if (isFullscreen) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      setIsFullscreen(false);
+      return;
+    }
+
+    const el = playerRef.current;
+    if (el?.requestFullscreen) {
+      // If the browser rejects it (iOS), keep the CSS fallback.
+      el.requestFullscreen().catch(() => setIsFullscreen(true));
+    }
+    setIsFullscreen(true);
+  };
 
   // Build a YouTube embed URL from a guide's videoUrl.
   const buildEmbedUrl = (videoUrl: string) => {
@@ -136,7 +209,15 @@ export default function GuidesSection() {
 
               {isActive && guide.videoUrl ? (
                 /* Inline video player — expands full width, pushes other cards below */
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#EDF3F1] border border-emerald-50/50 shadow-inner">
+                <div
+                  ref={playerRef}
+                  className={cn(
+                    "relative overflow-hidden bg-[#EDF3F1]",
+                    isFullscreen
+                      ? "fixed inset-0 z-50 h-[100dvh] w-screen rounded-none border-0 bg-black"
+                      : "aspect-[16/9] w-full rounded-2xl border border-emerald-50/50 shadow-inner"
+                  )}
+                >
                   <iframe
                     ref={activeIframeRef}
                     width="100%"
@@ -148,17 +229,26 @@ export default function GuidesSection() {
                     className="w-full h-full border-0"
                   />
 
-                  {/* Controls are hidden, so surface an explicit unmute affordance. */}
-                  {isMuted && (
+                  {/* Controls are hidden, so surface explicit sound + fullscreen affordances. */}
+                  <div className="absolute bottom-3 right-3 z-20 flex items-center gap-2">
+                    {isMuted && (
+                      <button
+                        onClick={unmute}
+                        className="flex items-center gap-1.5 rounded-full bg-black/70 px-3.5 py-2 text-[12px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-black/85"
+                        aria-label="Turn on sound"
+                      >
+                        <VolumeX size={14} />
+                        Tap for sound
+                      </button>
+                    )}
                     <button
-                      onClick={unmute}
-                      className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 rounded-full bg-black/70 px-3.5 py-2 text-[12px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-black/85"
-                      aria-label="Turn on sound"
+                      onClick={toggleFullscreen}
+                      className="flex items-center justify-center rounded-full bg-black/70 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-black/85"
+                      aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
                     >
-                      <VolumeX size={14} />
-                      Tap for sound
+                      {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
                     </button>
-                  )}
+                  </div>
                 </div>
               ) : (
                 <div
