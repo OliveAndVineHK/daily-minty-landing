@@ -113,7 +113,7 @@ export default function PricingGrid() {
       
               <p className={`text-[11px] font-medium p-3 rounded-xl mb-6 ${isSuperMintyGreen ? 'bg-white/15 text-white' : 'text-[#113B4A] bg-[#F5F8F9]'}`}>{plan.trialText}</p>
 
-              <Button href='/' className={`w-full py-3 rounded-xl font-bold text-sm mb-8 ${isSelected ? 'bg-[#113B4A] text-white' : 'bg-[#ECF2F5] text-[#113B4A]'}`}>
+              <Button href='https://www.minty.oliveandvinehk.com/' className={`w-full py-3 rounded-xl font-bold text-sm mb-8 ${isSelected ? 'bg-[#113B4A] text-white' : 'bg-[#ECF2F5] text-[#113B4A]'}`}>
                 Try for free
               </Button>
 
