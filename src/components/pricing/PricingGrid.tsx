@@ -64,13 +64,13 @@ export default function PricingGrid() {
       threshold={0.1}
       delay={0}
     >
-    <section className="max-w-[1200px] mx-auto px-4 mb-16">
+    <section className="max-w-[1400px] mx-auto px-4 mb-16">
       <div className="flex justify-center mb-12">
       <span className="bg-white border border-gray-100 text-[#113B4A] text-[13px] font-bold px-6 py-2.5 rounded-full shadow-md tracking-wide">
         Subscription Types
       </span>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
       {pricingPlans.map((plan) => {
         const isSelected = selectedPlan === plan.id;
         const isSuperMintyGreen = isSelected && plan.id === 'super-minty';

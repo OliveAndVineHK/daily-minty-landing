@@ -27,9 +27,9 @@ export default function HeroSection() {
     >
     <div className="min-h-screen flex flex-col bg-white">
   <main className="flex-grow pt-6 md:pt-10 pb-4 font-sans">
-    <Container className="max-w-[1200px]">
+    <Container className="max-w-[1400px]">
       
-      <section className="relative bg-gradient-to-r from-[#03c5c0] to-[#69d8c2] rounded-[32px] px-6 py-12 md:p-12 text-white mb-10 md:mb-20 shadow-sm overflow-visible">
+      <section className="relative bg-gradient-to-r from-[#03c5c0] to-[#69d8c2] rounded-[32px] px-6 py-12 md:px-12 md:py-20 text-white mb-10 md:mb-20 shadow-sm overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative w-full z-10">
           
 
