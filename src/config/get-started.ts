@@ -33,43 +33,32 @@ export const getStartedContent = {
     {
       id: 1,
       category: "Getting Started",
-      duration: "1:22 min",
-      title: "1. Set up your Entity",
+      duration: "0:44 sc",
+      title: "1. When Xero Comes First",
       description: '"I\'m new to Minty - where should I start?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/setup_entity.png",
-      videoUrl: "https://www.youtube.com/watch?v=r6Eb6KHymqk"
-     
+      videoThumbnail: "/assets/deployed-assets/GS-02-03.png",
+      videoUrl: "https://www.youtube.com/watch?v=1AwgfXOV-k0"
     },
     {
       id: 2,
       category: "Getting Started",
-      duration: "0:54 sec",
-      title: "2. Connecting Minty to Xero",
+      duration: "0:42 sec",
+      title: "2. Request Payment and keep it on track",
       description: '"How do I connect Minty account with other accounting systems?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/connecting_minty_xero.png",
-      videoUrl: "https://www.youtube.com/watch?v=tfhB71hNFUk"
+      videoThumbnail: "/assets/deployed-assets/GS-07-01.png",
+      videoUrl: "https://www.youtube.com/watch?v=Uku-S8hNs6c"
     },
     {
       id: 3,
       category: "Getting Started",
-      duration: "0:42 sec",
-      title: "3. Request payment and keep it on track",
+      duration: "0:34 sec",
+      title: "3. Voiding Incorrect Bills",
       description: '"How do I request a payment and stay on top of its status?"',
       badge: "",
-      videoThumbnail: "/assets/deployed-assets/requestpayment_andkeep_ontrack.png",
-      videoUrl: "https://www.youtube.com/watch?v=ITPafwDPLcA"
-    },
-     {
-      id: 4,
-      category: "Getting Started",
-      duration: "1:04 min",
-      title: "4. Record your payment full/partial",
-      description: '"How do I record a full or partial payment against an invoice?"',
-      badge: "",
-      videoThumbnail: "/assets/deployed-assets/recordyour_payment.png",
-      videoUrl: "https://www.youtube.com/watch?v=r9SSuTl-c4o"
+      videoThumbnail: "/assets/deployed-assets/GS-07-03.png",
+      videoUrl: "https://www.youtube.com/watch?v=TtO_HbNOLyM"
     },
   ]
 },
