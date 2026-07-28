@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import { getStartedContent } from '@/config/get-started';
 import { cn } from '@/lib/utils';
@@ -9,11 +10,11 @@ import { Clock, VolumeX, Maximize, Minimize } from 'lucide-react';
 import FadeContent from '@/animations/landing/fadeanim';
 
 export default function GuidesSection() {
-  const { guides } = getStartedContent;
+  const { guideGroups } = getStartedContent;
 
-  // Track which guide is currently being viewed/played
+  // Track which guide is currently being viewed/played. Ids are unique across
+  // every group, so a single piece of state covers all of them.
   const [activeGuideId, setActiveGuideId] = useState<number | null>(null);
-  const [displayCount, setDisplayCount] = useState(4);
   const [isMuted, setIsMuted] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const activeCardRef = useRef<HTMLDivElement>(null);
@@ -143,19 +144,36 @@ export default function GuidesSection() {
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-    <section className="bg-white py-10 mb-20 font-sans" id="guide">
-      <Container>
-        <div className="text-left mb-10">
-          <h2 className="text-[#113B4A] text-[28px] md:text-[32px] font-extrabold tracking-tight mb-2">
-            {guides.title}
+    <div id="guide" className="font-sans">
+    {guideGroups.map((group) => (
+    <div key={group.id}>
+    {/* A group with no items renders as a title-only banner — same gutters and
+        left edge as the card groups, just without the grid beneath it. */}
+    <section className={cn(
+      group.items.length === 0 ? 'py-10 md:py-12' : 'py-10 md:py-16',
+      group.background
+    )}>
+      <Container className="max-w-[1440px] px-4 md:px-6">
+        <div className={cn(group.items.length === 0 ? 'text-center' : 'text-left mb-6 md:mb-10')}>
+          <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-extrabold tracking-tight mb-2">
+            {group.eyebrow ? (
+              <>
+                <span className="text-[#113B4A]">{group.eyebrow}</span>{' '}
+                <span className="text-[#00CBB0]">{group.title}</span>
+              </>
+            ) : (
+              <span className="text-[#113B4A]">{group.title}</span>
+            )}
           </h2>
-          <p className="text-gray-500 text-sm md:text-base">
-            {guides.subtitle}
-          </p>
+          {group.subtitle && (
+            <p className="text-gray-500 text-sm md:text-base">
+              {group.subtitle}
+            </p>
+          )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fadeIn">
-          {guides.items.slice(0, displayCount).map((guide) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 animate-fadeIn">
+          {group.items.map((guide) => {
             const isActive = guide.id === activeGuideId;
             return (
             <div
@@ -203,9 +221,13 @@ export default function GuidesSection() {
                   guide.title
                 )}
               </h3>
-              <p className="text-gray-400 text-xs italic mb-6">
-                {guide.description}
-              </p>
+              {/* Guides without a subtitle skip the <p> entirely, so an empty
+                  string doesn't leave a blank line above the thumbnail. */}
+              {guide.description && (
+                <p className="text-gray-400 text-xs italic mb-6">
+                  {guide.description}
+                </p>
+              )}
 
               {isActive && guide.videoUrl ? (
                 /* Inline video player — expands full width, pushes other cards below */
@@ -286,18 +308,57 @@ export default function GuidesSection() {
           })}
         </div>
 
-        {displayCount < guides.items.length && (
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={() => setDisplayCount(displayCount + 4)}
-              className="bg-white border border-gray-200 text-[#113B4A] hover:bg-gray-50 font-bold px-6 py-2.5 rounded-full text-[13px] transition-all duration-200 shadow-xs"
-            >
-              Show more guides
-            </button>
-          </div>
-        )}
       </Container>
     </section>
+
+    {/* Optional full-width band that follows a group — e.g. Xero Integration. */}
+    {group.callout && (
+      <section className="bg-white py-8 md:py-16">
+        <Container className="max-w-[1440px] px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* w-fit sizes this column to its widest sizing child — the h2.
+                The description is taken out of that calculation with w-0 +
+                min-w-full (it still renders full width, it just doesn't widen
+                the box), so the button's w-full lands exactly on the title's
+                width rather than on the longer description's. */}
+            <div className="min-w-0">
+              {/* Desktop: w-fit sizes this box to the h2, the description is
+                  pulled out of that calculation with w-0 so it can sit on one
+                  line, and the button's w-full lands on the title's width.
+                  Mobile: full width, description wraps, button sizes to itself. */}
+              <div className="w-full md:w-fit">
+                <h2 className="text-[#113B4A] text-[24px] md:text-[28px] font-extrabold tracking-tight mb-2">
+                  {group.callout.title}
+                </h2>
+                <p className="text-gray-500 text-sm md:text-base mb-6 md:w-0 md:min-w-full md:whitespace-nowrap">
+                  {group.callout.description}
+                </p>
+                <Link
+                  href={group.callout.buttonHref}
+                  className="inline-flex w-auto md:w-full items-center justify-center gap-2 bg-[#113B4A] hover:bg-[#1a5569] text-white font-bold px-6 py-3 rounded-full text-[13px] transition-colors duration-200 no-underline"
+                >
+                  {group.callout.buttonText} <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+            <div className="min-w-0 flex items-center justify-center">
+              <Image
+                src={group.callout.image}
+                alt={group.callout.imageAlt}
+                width={506}
+                height={308}
+                sizes="(min-width: 768px) 420px, 100vw"
+                quality={100}
+                className="w-full max-w-[420px] h-auto object-contain"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+    )}
+    </div>
+    ))}
+    </div>
     </FadeContent>
   );
 }

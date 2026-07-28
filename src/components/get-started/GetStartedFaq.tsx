@@ -10,9 +10,9 @@ export default function GetStartedFaqSection() {
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-    <section className="bg-[#F4F7F9] py-20 font-sans">
-      <Container className="max-w-[950px]">
-        <div className="text-center mb-12">
+    <section className="bg-[#F4F7F9] py-12 md:py-20 font-sans">
+      <Container className="max-w-[950px] px-4 md:px-7">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="text-[#113B4A] text-[28px] md:text-[34px] font-extrabold tracking-tight mb-3">
             {faqSection.title}
           </h2>
@@ -53,11 +53,13 @@ export default function GetStartedFaqSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {faqSection.supportCards.map((card, idx) => (
-            <div 
+            <div
               key={idx}
-              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_24px_rgba(17,59,74,0.02)] flex flex-col items-start justify-between min-h-[220px]"
+              // min-h only from md up: on a phone the cards stack, and a 220px
+              // floor leaves dead space under the short one.
+              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-[0_4px_24px_rgba(17,59,74,0.02)] flex flex-col items-start justify-between md:min-h-[220px]"
             >
               <div>
 
