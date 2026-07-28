@@ -21,11 +21,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <HeroSection />
+        <DemoSection />
         <ProblemSection />
         <OutcomeSection />
         <HowItWorksSection />
         <HelpsYouSection />
-        <DemoSection />
         <SeeHow />
       </main>
       <Footer />
