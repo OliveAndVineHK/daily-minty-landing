@@ -29,13 +29,20 @@ export const landingContent = {
       },
       {
         num: 2,
-        image: '/assets/deployed-assets/step2-cat-atm.png',
+        image: '/assets/deployed-assets/cash.png',
         alt: 'Check the cash',
         title: 'Check the cash',
         body: 'Count your draw amount + Minty does the math along side you.',
       },
       {
         num: 3,
+        image: '/assets/deployed-assets/box_minty.png',
+        alt: 'Get a clean daily report',
+        title: 'Get a clean daily report',
+        body: 'Create, pay, and track payments + Minty keeps everyone aligned on bill payments.',
+      },
+      {
+        num: 4,
         image: '/assets/deployed-assets/step3-cat-phone.png',
         alt: 'Get a clean daily report',
         title: 'Get a clean daily report',
