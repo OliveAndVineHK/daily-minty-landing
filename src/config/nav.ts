@@ -31,7 +31,7 @@ export const navLinks: NavLink[] = [
   },
   {
     key: 'get-started',
-    label: 'Get Started with Minty',
+    label: 'Join Waitlist',
     href: '/get-started',
     variant: 'primary',
     enabled: true,

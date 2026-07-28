@@ -4,7 +4,7 @@ export const landingContent = {
     titleAccent: '',
     lede: 'No more lost receipts, no more missing numbers.',
     primaryCta: {
-      label: 'Get started with Minty',
+      label: 'Join Waitlist',
       href: '/get-started',
     },
     secondaryCta: {
@@ -45,8 +45,8 @@ export const landingContent = {
   },
   problem: {
     tag: 'The Problem',
-    headline: 'Daily closing gets complicated on busy days.',
-    highlights: ['complicated'], 
+    headline: 'Stuck in a messy and\ntiring routine.',
+    highlights: ['messy', 'tiring'],
     items: [
       'Rushed entries at closing',
       "Numbers don't match",
