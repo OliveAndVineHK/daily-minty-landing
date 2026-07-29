@@ -124,7 +124,7 @@ keepMeUpdated: {
   eyebrow: 'Interested?',
   title: 'Keep me updated',
   buttonText: 'Join the Waitlist',
-  backgroundImage: '/assets/deployed-assets/sky.png',
+  backgroundImage: '/assets/deployed-assets/sky.webp',
   mascotImage: '/assets/deployed-assets/super.png',
   mascotAlt: 'Minty mascot superhero with red cape',
 }
