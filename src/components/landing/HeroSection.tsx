@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* Generous bottom margin: the waitlist CTA's pulsing ring expands ~18px
               past the button edge, so a tighter gap lets it wash over this line. */}
           <div className="flex gap-2 md:gap-3.5 items-center justify-center md:justify-start flex-wrap mb-6 md:mb-9">
-            <Button href={hero.primaryCta.href} variant="waitlist" size="xl">
+            <Button href={hero.primaryCta.href} external={hero.primaryCta.external} variant="waitlist" size="xl">
               {hero.primaryCta.label}
             </Button>
             <Button href={hero.secondaryCta.href} variant="text" size="lg">

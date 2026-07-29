@@ -293,7 +293,7 @@ export default function ContactFormSection() {
             <div className="flex-1 min-w-0">
               <h3 className="font-bold text-[#113B4A] mb-1 text-[13px] md:text-sm">Help centre</h3>
               <p className="text-[11px] md:text-xs text-[#4A7280] leading-relaxed mb-2">Step-by-step guides, video walkthroughs, and answers to the most common questions.</p>
-              <a href="/get-started" className="text-[11px] md:text-xs font-bold text-[#00CBB0] hover:underline">Browse articles →</a>
+              <a href="/resources/learning" className="text-[11px] md:text-xs font-bold text-[#00CBB0] hover:underline">Browse articles →</a>
             </div>
           </div>
         </div>

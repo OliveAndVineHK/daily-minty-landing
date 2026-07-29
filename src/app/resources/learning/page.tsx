@@ -1,34 +1,21 @@
 'use client';
 
-import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import FAQHero from '@/components/support/FaqHero';
-import FAQCategories from '@/components/support/FaqCategories';
-import FAQSupportSection from '@/components/support/FaqSupportSection';
+import GetStartedHeroSection from '@/components/get-started/Hero-Section';
+import GuidesSection from '@/components/get-started/Guide-Section';
+import GuidesSectionFaq from '@/components/get-started/GetStartedFaq';
 
-function FAQContent() {
-  const searchParams = useSearchParams();
-  const openFaqId = searchParams.get('faqId');
-
+export default function GetStartedPage() {
   return (
-    <main>
-      <FAQHero />
-      <FAQCategories openId={openFaqId} />
-      <FAQSupportSection />
-    </main>
-  );
-}
-
-export default function FAQPage() {
-  return (
-    <div className="min-h-screen bg-[#F9FBFC]">
+    <>
       <Navbar />
-      <Suspense fallback={<div className="min-h-screen" />}>
-        <FAQContent />
-      </Suspense>
+      <main className="bg-white min-h-screen">
+        <GetStartedHeroSection />
+        <GuidesSection />
+        <GuidesSectionFaq />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }

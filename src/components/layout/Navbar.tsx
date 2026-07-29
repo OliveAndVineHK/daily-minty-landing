@@ -187,13 +187,14 @@ export default function Navbar() {
             })}
 
           <div className="flex flex-col gap-3 mt-4">
-            <Link
-              href="/get-started"
+            <a
+              href={siteConfig.waitlistUrl}
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="bg-[#00CBB0] text-white px-6 py-3 rounded-full font-bold text-center hover:opacity-90 transition-opacity"
+              className="bg-[#00CBB0] text-white px-6 py-3 rounded-full font-bold text-center hover:opacity-90 transition-opacity no-underline"
             >
-              Get Started with Minty
-            </Link>
+              Join Waitlist
+            </a>
             <Link
               href={siteConfig.loginUrl}
               onClick={() => setIsOpen(false)}

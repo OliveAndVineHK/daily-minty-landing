@@ -25,15 +25,17 @@ export const navLinks: NavLink[] = [
     variant: 'text',
     enabled: true,
     children: [
-      { label: 'Learning / FAQ', href: '/resources/learning', enabled: true },
-      { label: 'Contact',       href: '/resources/contact/', enabled: true },
+      { label: 'Learning', href: '/resources/learning', enabled: true },
+      { label: 'FAQ',      href: '/resources/faq',      enabled: true },
+      { label: 'Contact',  href: '/resources/contact',  enabled: true },
     ],
   },
   {
     key: 'get-started',
     label: 'Join Waitlist',
-    href: '/get-started',
+    href: siteConfig.waitlistUrl,
     variant: 'primary',
+    external: true,
     enabled: true,
   },
   {

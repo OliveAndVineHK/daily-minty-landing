@@ -30,7 +30,7 @@ export default function GetStartedFaqSection() {
             {faqSection.faqBox.items.map((item) => (
               <Link
                 key={item.id}
-                href={`/resources/learning?faqId=${encodeURIComponent(item.question)}`}
+                href={`/resources/faq?faqId=${encodeURIComponent(item.question)}`}
                 className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-b-0 cursor-pointer group no-underline"
               >
                 <div className="w-6 h-6 bg-[#E6FAF7] text-[#00CBB0] text-[11px] font-bold rounded-full flex items-center justify-center shrink-0 group-hover:bg-[#00CBB0] group-hover:text-white transition-colors duration-150">
@@ -45,7 +45,7 @@ export default function GetStartedFaqSection() {
 
           <div className="flex justify-center">
             <Link
-              href="/resources/learning"
+              href="/resources/faq"
               className="bg-transparent text-[#113B4A] border border-gray-200 hover:bg-gray-50 font-bold px-6 py-2.5 rounded-full text-[13px] transition-all duration-200 inline-flex items-center gap-1.5 shadow-xs no-underline"
             >
               {faqSection.faqBox.buttonText} <span>→</span>

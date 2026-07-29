@@ -48,7 +48,7 @@ export const getStartedContent = {
       id: "login-otp",
       eyebrow: "",
       title: "Login to Minty with OTP",
-      subtitle: "",
+      subtitle: "Get started instantly with a simple one-time password login.",
       // The original benefits band's tint.
       background: "bg-[#f3f9f7]",
       // Empty on purpose — this band is a title-only banner, no guide cards.

@@ -1,3 +1,5 @@
+import { siteConfig } from './site';
+
 export const landingContent = {
   hero: {
     title: 'Daily Minty',
@@ -5,7 +7,8 @@ export const landingContent = {
     lede: 'No more lost receipts, no more missing numbers.',
     primaryCta: {
       label: 'Join Waitlist',
-      href: '/get-started',
+      href: siteConfig.waitlistUrl,
+      external: true,
     },
     secondaryCta: {
       label: 'See how it works',

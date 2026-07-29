@@ -154,7 +154,7 @@ export default function GuidesSection() {
       group.background
     )}>
       <Container className="max-w-[1440px] px-4 md:px-6">
-        <div className={cn(group.items.length === 0 ? 'text-center' : 'text-left mb-6 md:mb-10')}>
+        <div className={cn('text-left', group.items.length > 0 && 'mb-6 md:mb-10')}>
           <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-extrabold tracking-tight mb-2">
             {group.eyebrow ? (
               <>
