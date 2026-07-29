@@ -120,10 +120,12 @@ demo: {
   subtitle: '',
   videoUrl: 'https://www.youtube.com/embed/LZVNOp6YTzE',
 },
-seeHowItWorks: {
-  title: 'See how Minty works.',
-  buttonText: 'Join Waitlist →',
-  image: 'assets/deployed-assets/minty-mascot-wave.mp4'
-  
+keepMeUpdated: {
+  eyebrow: 'Interested?',
+  title: 'Keep me updated',
+  buttonText: 'Join the Waitlist',
+  backgroundImage: '/assets/deployed-assets/sky.png',
+  mascotImage: '/assets/deployed-assets/super.png',
+  mascotAlt: 'Minty mascot superhero with red cape',
 }
 };
