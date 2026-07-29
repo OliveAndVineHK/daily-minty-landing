@@ -71,7 +71,7 @@ export const getStartedContent = {
       background: "bg-[#FBF7F0]",
       items: [
         {
-          id: 3,
+          id: 1,
           category: "Getting Started",
           duration: "0:44 sec",
           title: "1. When Xero Comes First",
@@ -80,16 +80,16 @@ export const getStartedContent = {
           videoThumbnail: "/assets/deployed-assets/GS-02-03.png",
           videoUrl: "https://www.youtube.com/watch?v=1AwgfXOV-k0"
         },
-        {
-          id: 4,
-          category: "Getting Started",
-          duration: "0:42 sec",
-          title: "2. Request Payment and keep it on track",
-          description: '"How do I connect Minty account with other accounting systems?"',
-          badge: "",
-          videoThumbnail: "/assets/deployed-assets/GS-07-01.png",
-          videoUrl: "https://www.youtube.com/watch?v=Uku-S8hNs6c"
-        },
+        // {
+        //   id: 2,
+        //   category: "Getting Started",
+        //   duration: "0:42 sec",
+        //   title: "2. Request Payment and keep it on track",
+        //   description: '"How do I connect Minty account with other accounting systems?"',
+        //   badge: "",
+        //   videoThumbnail: "/assets/deployed-assets/GS-07-01.png",
+        //   videoUrl: "https://www.youtube.com/watch?v=Uku-S8hNs6c"
+        // },
       ],
     },
     {
@@ -100,24 +100,24 @@ export const getStartedContent = {
       background: "bg-white",
       items: [
         {
-          id: 5,
-          category: "Getting Started",
-          duration: "0:44 sc",
-          title: "1. When Xero Comes First",
-          description: '"I\'m new to Minty - where should I start?"',
-          badge: "",
-          videoThumbnail: "/assets/deployed-assets/GS-02-03.png",
-          videoUrl: "https://www.youtube.com/watch?v=1AwgfXOV-k0"
-        },
-        {
-          id: 6,
+          id: 4,
           category: "Getting Started",
           duration: "0:42 sec",
-          title: "2. Request Payment and keep it on track",
+          title: "1. Request Payment and keep it on track",
           description: '"How do I connect Minty account with other accounting systems?"',
           badge: "",
           videoThumbnail: "/assets/deployed-assets/GS-07-01.png",
           videoUrl: "https://www.youtube.com/watch?v=Uku-S8hNs6c"
+        },
+         {
+          id: 5,
+          category: "Getting Started",
+          duration: "0:42 sec",
+          title: "2. Void Incorrect Bills",
+          description: '"How do I connect Minty account with other accounting systems?"',
+          badge: "",
+          videoThumbnail: "/assets/deployed-assets/GS-07-03.png",
+          videoUrl: "https://www.youtube.com/watch?v=TtO_HbNOLyM"
         },
       ],
     },
@@ -129,24 +129,24 @@ export const getStartedContent = {
       background: "bg-[#F1F6F8]",
       items: [
         {
-          id: 7,
-          category: "Getting Started",
-          duration: "0:44 sc",
-          title: "1. When Xero Comes First",
-          description: '"I\'m new to Minty - where should I start?"',
+          id: 6,
+          category: "Coming Soon",
+          duration: "0:00 sec",
+          title: "Coming Soon",
+          description: 'Coming Soon',
           badge: "",
-          videoThumbnail: "/assets/deployed-assets/GS-02-03.png",
-          videoUrl: "https://www.youtube.com/watch?v=1AwgfXOV-k0"
+          videoThumbnail: "",
+          videoUrl: ""
         },
         {
-          id: 8,
-          category: "Getting Started",
-          duration: "0:42 sec",
-          title: "2. Request Payment and keep it on track",
-          description: '"How do I connect Minty account with other accounting systems?"',
+          id: 7,
+          category: "Coming Soon",
+          duration: "0:00 sec",
+          title: "Coming Soon",
+          description: 'Coming Soon',
           badge: "",
-          videoThumbnail: "/assets/deployed-assets/GS-07-01.png",
-          videoUrl: "https://www.youtube.com/watch?v=Uku-S8hNs6c"
+          videoThumbnail: "",
+          videoUrl: ""
         },
       ],
     },
