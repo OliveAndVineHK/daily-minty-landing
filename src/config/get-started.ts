@@ -151,18 +151,63 @@ export const getStartedContent = {
       ],
     },
   ],
+  xeroGuide: {
+    title: "Connecting and Managing Xero Integration in Minty",
+    videoUrl: "",
+    videoNote: "IF ANY...",
+    items: [
+      {
+        id: "connect",
+        question: "Let's connect Minty to Xero",
+        answer: [
+          "Ready to link Minty with Xero? Let's do it together. First, log in to Minty and either create a new entity or pick one you already have. Once your entity is ready, open the module you'd like to work with, click the three-line menu in the top-right corner, and head to Settings. From there, choose Entity & Integration and click Connect to Xero. I'll take you over to Xero, where you'll log in and choose the organization you'd like to manage right on the Allow Access screen. Give it the go-ahead, and that's it. You and Xero are linked and ready to sync.",
+        ],
+      },
+      {
+        id: "what-happens",
+        question: "What happens inside of Minty when I connect?",
+        answer: [
+          "Curious what happens after you click Connect to Xero? Here's the honest play-by-play. Once you log in and approve access on Xero's screen, which is where you pick your organization rather than inside Minty, Xero sends me back a one-time code. I swap that code for a secure access token, along with a refresh token to keep things running, then read the connection Xero just opened and lock in the organization it points to. One small heads-up: if you approve more than one organization at once, I only keep the first, so be sure to approve just the one you want. From there, I remember that pairing on my side and quietly attach it to every request I make. Whenever my access expires, I renew it in the background so you stay connected without lifting a finger. Nothing else travels back to Xero, and your tokens and organization stay safely with me.",
+        ],
+      },
+      {
+        id: "how-do-i-know",
+        question: "How do I know it's connected?",
+        answer: [
+          "Once we're connected, you can check things from either side with no guesswork. Over in Minty, I'll show you right away which Xero organization is linked to your entity, right there on the settings card. In Xero, you can confirm the same by opening Manage Connected Apps (just click the nine dots in the top-left corner), where you'll find \"Minty\" already listed and can disconnect anytime. One honest note: disconnecting from the Xero side will disconnect me too, though not at the exact moment you do it. I notice the change the next time I refresh a page, so it may take a little while to catch up.",
+        ],
+      },
+      {
+        id: "rules",
+        question: "Are there any rules I should know?",
+        answer: [
+          "A few firm ground rules keep everything safe and in sync.",
+          "First, it's one organization to one entity. A Xero organization can be linked to just one Minty entity at a time, so if someone else tries to connect it, even a fellow member of that same organization, I'll turn the request down and hand the access back to Xero. Your Connected Apps page will show the refusal too. One thing to watch: if you connect an organization that's already linked to another of your own entities, I'll quietly move the link over to the new one, so double-check which entity you're connecting.",
+          "Second, you'll need to use the same account. Always connect with the very same Xero account you used to sign in to Minty. If the two don't match, I'll refuse the connection, undo the access Xero just granted, and show you an error naming both addresses. This one is a firm requirement rather than a friendly suggestion.",
+          "Finally, invitations are personal. Only the exact address that received a Minty invitation can accept it, so opening the link while signed in under a different email simply won't work.",
+        ],
+      },
+      {
+        id: "chart-of-accounts",
+        question: "Why do only certain charts of account show up?",
+        answer: [
+          "Wondering why the account list looks the way it does? Most of your Xero accounts are yours to pick, and that even includes locked system accounts like Bank Revaluations, Accounts Receivable, and Accounts Payable. I work with those and send them across to Xero for you, so they stay on the list. The only accounts I leave off are the ones Xero locks against direct posting, such as Realised Currency Gains, Sales Tax, Historical Adjustment, Rounding, and Retained Earnings. Choosing one of those would only lead to an error, so I filter them out ahead of time and leave you with the accounts you can actually use.",
+        ],
+      },
+    ],
+  },
 faqSection: {
-    title: "Still have questions?",
+    title: "FAQ",
     subtitle: "Our team and resources are here to help you at any step.",
     faqBox: {
       title: "Common FAQ",
       buttonText: "Frequently asked questions",
       items: [
-        { id: 1, question: "I didn’t finish today’s closing. Is that okay?" },
-        { id: 2, question: "Do the numbers need to be exact?" },
-        { id: 3, question: "What if numbers don’t match exactly?" },
-        { id: 4, question: "What if I don’t have a receipt?" },
-        { id: 5, question: "Is Minty monitoring or controlling my shop?" }
+        { id: 1, question: "How do I disconnect from Xero?" },
+        { id: 2, question: "What does the integration not cover?" },
+        { id: 3, question: "Where do payment processing fees show up in Xero?" },
+        { id: 4, question: "How do I reconcile my sales data in Xero?" },
+        { id: 5, question: "When does my data sync, and is there anything I can adjust?" }
       ]
     },
     supportCards: [
