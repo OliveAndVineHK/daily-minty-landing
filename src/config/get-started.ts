@@ -193,7 +193,7 @@ faqSection: {
     subtitle: "Cannot connect to Xero? I'm here to help.",
     faqBox: {
       title: "Xero Integration FAQ",
-      buttonText: "Frequently asked questions",
+      buttonText: "Minty FAQ",
       items: [
         {
           id: 1,
