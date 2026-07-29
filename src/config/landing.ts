@@ -21,7 +21,7 @@ export const landingContent = {
   how: {
     title: 'Minty helps you close the day,',
     titleAccent: 'everyday.',
-    subtitle: 'Three methods. One go-to dashboard. Zero spreadsheet trauma.',
+    subtitle: 'Four methods. One go-to dashboard. Zero spreadsheet trauma.',
     steps: [
       {
         num: 1,
@@ -40,8 +40,8 @@ export const landingContent = {
       {
         num: 3,
         image: '/assets/deployed-assets/box_minty.png',
-        alt: 'Get a clean daily report',
-        title: 'Get a clean daily report',
+        alt: 'Request payments',
+        title: 'Request payments',
         body: 'Create, pay, and track payments + Minty keeps everyone aligned on bill payments.',
       },
       {

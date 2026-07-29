@@ -14,7 +14,7 @@ export const xeroIntegrationContent = {
     // Split so "Xero" can take the Xero blue and "Integration" the dark ink.
     titleAccent: 'Xero',
     titleRest: 'Integration',
-    subtitle: 'Xero....',
+    subtitle: 'Want To Know More About Xero?',
   },
 
   mapping: {

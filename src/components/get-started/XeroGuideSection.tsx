@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Container from '@/components/ui/Container';
 import { getStartedContent } from '@/config/get-started';
 import { cn } from '@/lib/utils';
+import VideoPlayer from '@/components/get-started/VideoPlayer';
 import FadeContent from '@/animations/landing/fadeanim';
 
 /**
@@ -23,22 +24,18 @@ export default function XeroGuideSection() {
           </h2>
 
           <div className="mx-auto w-full max-w-[880px]">
-            <div className="mx-auto w-full max-w-[460px] mb-8">
+            {/* No fixed width here — VideoPlayer holds the poster at 460px and
+                expands to the full 880px column once it starts playing. */}
+            <div className="w-full mb-8">
               {xeroGuide.videoUrl ? (
-                <div className="aspect-[16/9] w-full rounded-xl overflow-hidden bg-black">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={xeroGuide.videoUrl}
-                    title={xeroGuide.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                </div>
+                <VideoPlayer
+                  videoUrl={xeroGuide.videoUrl}
+                  title={xeroGuide.title}
+                  duration={xeroGuide.duration}
+                />
               ) : (
                 /* No recording yet — placeholder frame from the design. */
-                <div className="relative aspect-[16/9] w-full rounded-xl bg-[#D9D9D9] flex items-center justify-center">
+                <div className="relative aspect-[16/9] mx-auto w-full max-w-[460px] rounded-xl bg-[#D9D9D9] flex items-center justify-center">
                   <span className="text-white text-4xl" aria-hidden="true">▶</span>
                   {xeroGuide.videoNote && (
                     <span className="absolute bottom-3 right-4 text-[#E5484D] text-xs font-semibold">

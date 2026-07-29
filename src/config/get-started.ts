@@ -102,7 +102,7 @@ export const getStartedContent = {
         {
           id: 4,
           category: "Getting Started",
-          duration: "0:42 sec",
+          duration: "0:43 sec",
           title: "1. Request Payment and keep it on track",
           description: '"How do I connect Minty account with other accounting systems?"',
           badge: "",
@@ -112,7 +112,7 @@ export const getStartedContent = {
          {
           id: 5,
           category: "Getting Started",
-          duration: "0:42 sec",
+          duration: "0:34 sec",
           title: "2. Void Incorrect Bills",
           description: '"How do I connect Minty account with other accounting systems?"',
           badge: "",
@@ -131,7 +131,7 @@ export const getStartedContent = {
         {
           id: 1,
           category: "Getting Started",
-          duration: "0:44 sec",
+          duration: "0:43 sec",
           title: "1. When Xero Comes First",
           description: '"I\'m new to Minty - where should I start?"',
           badge: "",
@@ -144,7 +144,8 @@ export const getStartedContent = {
   ],
   xeroGuide: {
     title: "Connecting and Managing Xero Integration in Minty",
-    videoUrl: "",
+    videoUrl: "https://youtu.be/02fYdxjx6j8",
+    duration: "1:26",
     videoNote: "IF ANY...",
     items: [
       {
@@ -188,10 +189,10 @@ export const getStartedContent = {
     ],
   },
 faqSection: {
-    title: "FAQ",
-    subtitle: "Our team and resources are here to help you at any step.",
+    title: "Xero Integration FAQ",
+    subtitle: "Cannot connect to Xero? I'm here to help.",
     faqBox: {
-      title: "Xero FAQ",
+      title: "Xero Integration FAQ",
       buttonText: "Frequently asked questions",
       items: [
         {
