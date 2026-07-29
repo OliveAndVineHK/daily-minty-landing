@@ -333,11 +333,19 @@ export default function GuidesSection() {
                 <p className="text-gray-500 text-sm md:text-base mb-6 md:w-0 md:min-w-full md:whitespace-nowrap">
                   {group.callout.description}
                 </p>
+                {/* Lift + shadow on hover, dip on press, arrow slides right —
+                    so the click has feedback before the page changes. */}
                 <Link
                   href={group.callout.buttonHref}
-                  className="inline-flex w-auto md:w-full items-center justify-center gap-2 bg-[#113B4A] hover:bg-[#1a5569] text-white font-bold px-6 py-3 rounded-full text-[13px] transition-colors duration-200 no-underline"
+                  className="group inline-flex w-auto md:w-full items-center justify-center gap-2 bg-[#113B4A] hover:bg-[#1a5569] text-white font-bold px-6 py-3 rounded-full text-[13px] no-underline transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(17,59,74,0.22)] active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none"
                 >
-                  {group.callout.buttonText} <span aria-hidden="true">→</span>
+                  {group.callout.buttonText}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:transform-none"
+                  >
+                    →
+                  </span>
                 </Link>
               </div>
             </div>

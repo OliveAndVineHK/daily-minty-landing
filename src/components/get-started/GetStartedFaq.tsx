@@ -13,7 +13,7 @@ export default function GetStartedFaqSection() {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (
-    <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
+    <FadeContent blur={false} duration={1000} ease="ease-out" initialOpacity={0}>
     <section className="bg-[#F4F7F9] py-12 md:py-20 font-sans">
       <Container className="max-w-[950px] px-4 md:px-7">
         <div className="text-center mb-8 md:mb-12">

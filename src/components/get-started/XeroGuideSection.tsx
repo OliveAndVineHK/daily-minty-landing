@@ -15,7 +15,7 @@ export default function XeroGuideSection() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
+    <FadeContent blur={false} duration={1000} ease="ease-out" initialOpacity={0}>
       <section className="bg-[#F7F9FB] py-10 md:py-16 font-sans">
         <Container className="max-w-[1440px] px-4 md:px-6">
           <h2 className="text-[#113B4A] text-[22px] sm:text-[26px] md:text-[28px] font-extrabold tracking-tight mb-8 md:mb-10">
