@@ -25,7 +25,7 @@ export default function SeeHowItWorksSection() {
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-    <section id="see-how-it-works" className="bg-[#04d1b9] pt-12 md:pt-20 pb-12 md:pb-20 text-center flex flex-col items-center">
+    <section id="see-how-it-works" className="bg-[#04d1b9] py-12 md:py-20 text-center flex flex-col items-center">
       <Container className="flex flex-col items-center mb-0">
 
         <h2 className="text-[28px] md:text-[40px] font-extrabold text-white mb-4 md:mb-6 tracking-tight">

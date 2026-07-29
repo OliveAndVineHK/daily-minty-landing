@@ -20,7 +20,7 @@ export default function HeroSection() {
       threshold={0.1}
       delay={0}
     >
-    <section className="bg-white py-12 md:py-24" aria-labelledby="hero-title">
+    <section className="bg-white pt-16 md:pt-28 md:pb-20" aria-labelledby="hero-title">
       {/* Column split + width mirror the original landing page (2fr/3fr inside a
           1440px shell) so the hero art renders at the same scale it did there. */}
       <Container className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-12 items-center max-w-[1440px] text-center md:text-left px-4 md:px-6">

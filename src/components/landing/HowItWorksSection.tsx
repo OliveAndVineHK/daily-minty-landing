@@ -8,7 +8,7 @@ export default function HowItWorksSection() {
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-      <section id="how" className="bg-white pt-24 pb-20 text-center" aria-labelledby="how-title">
+      <section id="how" className="bg-white py-12 md:py-20 text-center" aria-labelledby="how-title">
         <Container>
           {/* Header Section */}
           <h2

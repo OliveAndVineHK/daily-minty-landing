@@ -17,7 +17,7 @@ function renderHeadline(headline: string, highlights: readonly string[]) {
 export default function ProblemSection() {
   const { problem } = landingContent;
   return (
-    <section className="bg-peach py-8 md:py-12" aria-labelledby="problem-title">
+    <section className="bg-peach py-12 md:py-20" aria-labelledby="problem-title">
       <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
         <Container className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center md:items-start max-w-[1440px] px-4 md:px-6">
           <div className="min-w-0 flex items-center justify-center">
