@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/pricing`,           lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteConfig.url}/resources/learning`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteConfig.url}/resources/faq`,      lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${siteConfig.url}/resources/xero-integration`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${siteConfig.url}/resources/contact`,  lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
   ];
 }

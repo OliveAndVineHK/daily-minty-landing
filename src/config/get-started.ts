@@ -58,7 +58,7 @@ export const getStartedContent = {
         title: "Xero Integration",
         description: "Create Xero organisation to be used in Minty",
         buttonText: "View details",
-        buttonHref: "/resources/learning",
+        buttonHref: "/resources/xero-integration",
         image: "/assets/deployed-assets/minty_xero.png",
         imageAlt: "The Minty x Xero logo lockup",
       },
@@ -194,11 +194,31 @@ faqSection: {
       title: "Common FAQ",
       buttonText: "Frequently asked questions",
       items: [
-        { id: 1, question: "How do I disconnect from Xero?" },
-        { id: 2, question: "What does the integration not cover?" },
-        { id: 3, question: "Where do payment processing fees show up in Xero?" },
-        { id: 4, question: "How do I reconcile my sales data in Xero?" },
-        { id: 5, question: "When does my data sync, and is there anything I can adjust?" }
+        {
+          id: 1,
+          question: "I didn’t finish today’s closing. Is that okay?",
+          answer: "Yes, that is completely fine! Minty saves your progress automatically. You can jump back in tomorrow morning and pick up exactly right where you left off without losing any drawer records."
+        },
+        {
+          id: 2,
+          question: "Do the numbers need to be exact?",
+          answer: "Ideally yes, but small cash drawer discrepancies happen. Minty logs variances transparently under a 'Safe Discrepancy Margin' field so your bank deposit sheets remain balanced."
+        },
+        {
+          id: 3,
+          question: "What if numbers don’t match exactly?",
+          answer: "Don't panic. Minty walks you through a short reconciliation checklist to pinpoint where the cash, terminal credit cards, or petty voucher entries strayed off course."
+        },
+        {
+          id: 4,
+          question: "What if I don’t have a receipt?",
+          answer: "You can write a digital memo voucher inside the application describing the itemization, cost, and purpose to successfully offset cash balancing checks."
+        },
+        {
+          id: 5,
+          question: "Is Minty monitoring or controlling my shop?",
+          answer: "Minty does not control store POS machines or banking terminals. We only receive and organize structural accounting balance sheets that you explicitly submit."
+        }
       ]
     },
     supportCards: [

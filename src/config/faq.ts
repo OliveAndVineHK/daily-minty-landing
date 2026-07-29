@@ -159,52 +159,6 @@ export const landingFaq: FaqItem[] = [
   },
 
   {
-    id: 'xero-disconnect',
-    category: 'accountant',
-    question: "How do I disconnect from Xero?",
-    wide: true,
-    body: [
-      { type: 'p', text: "No hard feelings, disconnecting is quick and you can do it from either side. If you'd like to unlink from within Minty, just click the Disconnect button and I'll close the Xero connection at the same time. If you'd rather do it from Xero, head to Manage Connected Apps and click Disconnect there, which unlinks Minty right along with it. Either way, both sides disconnect together, so you only ever need to do it once." }
-    ]
-  },
-  {
-    id: 'xero-not-covered',
-    category: 'accountant',
-    question: "What does the integration not cover?",
-    wide: true,
-    body: [
-      { type: 'p', text: "Great question, and I like being upfront about where I stop. I keep connections strictly one-to-one, so a single Xero organization only ever links to one Minty entity. I also won't connect if you're signed in to Xero as a different person than the one who clicked, since the two have to match. Invitations stay personal too, so only the exact address an invite was sent to can accept it. When it comes to your data, I never delete your Xero contacts. I only add and update, so nothing goes missing by accident. In certain pickers, like expense and owner accounts, I quietly leave out the accounts Xero manages on its own. There aren't any sync settings to fiddle with either, since I handle the timing myself. If there's something specific you're wondering whether I handle, just ask and I'll always tell you straight." }
-    ]
-  },
-  {
-    id: 'xero-processing-fees',
-    category: 'accountant',
-    question: "Where do payment processing fees show up in Xero?",
-    wide: true,
-    body: [
-      { type: 'p', text: "Whenever you publish from Minty, I tuck each transaction into the right spot in Xero for you. Publish from the petty cash module and I'll record it under Spend & Receive Money, where you can check it anytime under Cash In & Out on your Xero Home page. Every petty cash transaction shows up there, sorted by its type. Publish from the payment module and I'll post it to Bills instead, so just open the Bills page in Xero and your recorded transaction will be waiting there." }
-    ]
-  },
-  {
-    id: 'xero-reconcile',
-    category: 'accountant',
-    question: "How do I reconcile my sales data in Xero?",
-    wide: true,
-    body: [
-      { type: 'p', text: "Reconciling happens over in Xero, and the path depends on which module you're using. For the payment module, I keep it hands-off. I pull your bank feed and drop it straight onto your Xero bank statement, so you can head there and reconcile right away. The petty cash module takes one extra step to reach the bank statement. Once you publish from Minty, your entries land on Xero's Account Transactions page. From there, export them as a CSV, then import that CSV into your bank statement page, and now you can reconcile them in Xero just like everything else." }
-    ]
-  },
-  {
-    id: 'xero-sync-timing',
-    category: 'accountant',
-    question: "When does my data sync, and is there anything I can adjust?",
-    wide: true,
-    body: [
-      { type: 'p', text: "Here's the honest rundown. I don't run a constant real-time stream. Instead, I move data at two natural moments. Coming in from Xero, I keep a local copy of your chart of accounts and contacts so pages load fast. I download everything when you first connect, then quietly refresh it as you visit the relevant pages, updating only what's actually changed. I never delete a contact, so I only ever add and update. Going out to Xero, your transactions are sent when you Publish a report, which I handle in the background so you're never left waiting. Behind the scenes I keep the connection alive on my own, and your access renews automatically whenever it's needed. Apart from connecting and logging in, there are no sync settings for you to manage. I take care of the timing." }
-    ]
-  },
-
-  {
     id: 'split-shifts',
     category: 'intermediate',
     question: "How do I balance split-shifts or mid-day drawer handoffs?",

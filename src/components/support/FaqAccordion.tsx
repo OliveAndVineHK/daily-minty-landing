@@ -97,7 +97,7 @@ export default function FaqAccordion({ items, defaultOpenId }: { items: FaqItem[
           >
             <button
               type="button"
-              className="w-full min-h-[84px] flex items-center gap-4 px-[22px] py-[18px] bg-transparent border-0 cursor-pointer text-left font-sans"
+              className="w-full flex items-center gap-4 px-[22px] py-[18px] bg-transparent border-0 cursor-pointer text-left font-sans"
               aria-expanded={isOpen}
               aria-controls={`faq-body-${item.id}`}
               onClick={() => setOpenId(isOpen ? null : item.id)}

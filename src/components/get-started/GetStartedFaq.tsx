@@ -1,12 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { getStartedContent } from '@/config/get-started';
+import { cn } from '@/lib/utils';
 import FadeContent from '@/animations/landing/fadeanim';
+
 export default function GetStartedFaqSection() {
   const { faqSection } = getStartedContent;
+  const [openId, setOpenId] = useState<number | null>(null);
 
   return (
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
@@ -26,21 +30,58 @@ export default function GetStartedFaqSection() {
             {faqSection.faqBox.title}
           </h3>
 
+          {/* Questions expand in place rather than linking to /resources/faq. */}
           <div className="flex flex-col mb-8">
-            {faqSection.faqBox.items.map((item) => (
-              <Link
-                key={item.id}
-                href={`/resources/faq?faqId=${encodeURIComponent(item.question)}`}
-                className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-b-0 cursor-pointer group no-underline"
-              >
-                <div className="w-6 h-6 bg-[#E6FAF7] text-[#00CBB0] text-[11px] font-bold rounded-full flex items-center justify-center shrink-0 group-hover:bg-[#00CBB0] group-hover:text-white transition-colors duration-150">
-                  Q
+            {faqSection.faqBox.items.map((item) => {
+              const isOpen = openId === item.id;
+              return (
+                <div key={item.id} className="border-b border-gray-100 last:border-b-0">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`common-faq-body-${item.id}`}
+                    onClick={() => setOpenId(isOpen ? null : item.id)}
+                    className="w-full flex items-center gap-4 py-4 bg-transparent border-0 cursor-pointer text-left group"
+                  >
+                    <div
+                      className={cn(
+                        'w-6 h-6 text-[11px] font-bold rounded-full flex items-center justify-center shrink-0 transition-colors duration-150',
+                        isOpen
+                          ? 'bg-[#00CBB0] text-white'
+                          : 'bg-[#E6FAF7] text-[#00CBB0] group-hover:bg-[#00CBB0] group-hover:text-white'
+                      )}
+                    >
+                      Q
+                    </div>
+                    <p
+                      className={cn(
+                        'flex-1 font-medium text-[14px] leading-snug transition-colors duration-150',
+                        isOpen ? 'text-[#00CBB0]' : 'text-[#113B4A] group-hover:text-[#00CBB0]'
+                      )}
+                    >
+                      {item.question}
+                    </p>
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        'flex-none w-2 h-2 border-r-2 border-b-2 border-current rotate-45 -translate-y-px transition-transform duration-200',
+                        isOpen ? 'text-[#00CBB0] rotate-[225deg] translate-y-0.5' : 'text-gray-300'
+                      )}
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div
+                      id={`common-faq-body-${item.id}`}
+                      role="region"
+                      className="pl-10 pr-2 pb-4 text-[#5a6d75] text-[13.5px] leading-[1.65]"
+                    >
+                      {item.answer}
+                    </div>
+                  )}
                 </div>
-                <p className="text-[#113B4A] font-medium text-[14px] leading-snug group-hover:text-[#00CBB0] transition-colors duration-150">
-                  {item.question}
-                </p>
-              </Link>
-            ))}
+              );
+            })}
           </div>
 
           <div className="flex justify-center">
@@ -53,40 +94,6 @@ export default function GetStartedFaqSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {faqSection.supportCards.map((card, idx) => (
-            <div
-              key={idx}
-              // min-h only from md up: on a phone the cards stack, and a 220px
-              // floor leaves dead space under the short one.
-              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-[0_4px_24px_rgba(17,59,74,0.02)] flex flex-col items-start justify-between md:min-h-[220px]"
-            >
-              <div>
-
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg font-bold mb-5 shadow-xs ${
-                  card.type === 'support' ? 'bg-[#2BBCA6]' : 'bg-[#00CBB0]'
-                }`}>
-                  {card.icon}
-                </div>
-                
-                <h4 className="text-[#113B4A] text-[17px] font-extrabold mb-2">
-                  {card.title}
-                </h4>
-                <p className="text-gray-500 text-[13px] leading-relaxed mb-6">
-                  {card.description}
-                </p>
-              </div>
-
-              <Link 
-                href={card.href}
-                className="text-[#00CBB0] font-bold text-[14px] hover:text-[#00A38D] inline-flex items-center gap-1 transition-colors group"
-              >
-                {card.linkText} 
-                <span className="transform transition-transform group-hover:translate-x-0.5">→</span>
-              </Link>
-            </div>
-          ))}
-        </div>
       </Container>
     </section>
     </FadeContent>
