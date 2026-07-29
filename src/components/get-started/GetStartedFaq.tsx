@@ -76,7 +76,7 @@ export default function GetStartedFaqSection() {
                       role="region"
                       className="pl-10 pr-2 pb-4 text-[#5a6d75] text-[13.5px] leading-[1.65]"
                     >
-                      {item.answer}
+                      <p className="[text-align:justify]">{item.answer}</p>
                     </div>
                   )}
                 </div>

@@ -31,11 +31,17 @@ export default function XeroGuideSection() {
                 <VideoPlayer
                   videoUrl={xeroGuide.videoUrl}
                   title={xeroGuide.title}
+                  thumbnail={xeroGuide.videoThumbnail}
                   duration={xeroGuide.duration}
+                  // Full column width from the start — no expand on play.
+                  collapsedWidth="max-w-none"
+                  // 16/9 matches the video frame exactly, so the poster occupies
+                  // the same box the player will and nothing shifts on play.
+                  posterAspect="aspect-[16/9]"
                 />
               ) : (
                 /* No recording yet — placeholder frame from the design. */
-                <div className="relative aspect-[16/9] mx-auto w-full max-w-[460px] rounded-xl bg-[#D9D9D9] flex items-center justify-center">
+                <div className="relative aspect-[16/9] mx-auto w-full rounded-xl bg-[#D9D9D9] flex items-center justify-center">
                   <span className="text-white text-4xl" aria-hidden="true">▶</span>
                   {xeroGuide.videoNote && (
                     <span className="absolute bottom-3 right-4 text-[#E5484D] text-xs font-semibold">
@@ -89,7 +95,13 @@ export default function XeroGuideSection() {
                         className="px-5 md:px-[22px] pb-5 text-ink-soft text-[14.5px] leading-[1.65]"
                       >
                         {item.answer.map((paragraph, idx) => (
-                          <p key={idx} className="text-ink-muted [&+p]:mt-3">
+                          <p
+                            key={idx}
+                            // Set on the <p> itself rather than inherited, and as an
+                            // arbitrary property so nothing can collapse it with the
+                            // other text-* utilities on the wrapper.
+                            className="text-ink-muted [&+p]:mt-5 [text-align:justify]"
+                          >
                             {paragraph}
                           </p>
                         ))}

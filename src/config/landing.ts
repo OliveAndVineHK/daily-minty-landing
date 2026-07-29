@@ -12,7 +12,7 @@ export const landingContent = {
     },
     secondaryCta: {
       label: 'See how it works',
-      href: '#see-how-it-works',
+      href: '#solution',
     },
     trustText: {before: 'Sync directly with',highlighted: 'Xero'},
     imageAlt: 'Daily Minty hero image showing a cat with a laptop and phone',
@@ -122,7 +122,7 @@ demo: {
 },
 seeHowItWorks: {
   title: 'See how Minty works.',
-  buttonText: 'Open the demo →',
+  buttonText: 'Join Waitlist →',
   image: 'assets/deployed-assets/minty-mascot-wave.mp4'
   
 }

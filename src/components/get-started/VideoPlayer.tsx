@@ -137,6 +137,11 @@ export default function VideoPlayer({
               src={poster}
               alt={title}
               fill
+              // Without an explicit sizes, `fill` defaults to 100vw and Next
+              // picks a srcset entry for the whole viewport — soft on a poster
+              // that is really ~880px. quality 100 avoids extra recompression.
+              sizes="(min-width: 1024px) 880px, 100vw"
+              quality={100}
               className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
           ) : (

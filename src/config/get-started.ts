@@ -65,7 +65,7 @@ export const getStartedContent = {
     },
     {
       id: "petty-cash",
-      eyebrow: "Getting started guides",
+      eyebrow: "Guides for",
       title: "Petty Cash Module",
       subtitle: "Short, practical tutorials to help you master Minty step by step.",
       background: "bg-[#FBF7F0]",
@@ -94,7 +94,7 @@ export const getStartedContent = {
     },
     {
       id: "payment-request",
-      eyebrow: "Getting started guides",
+      eyebrow: "Guides for",
       title: "Payment Request Module",
       subtitle: "Short, practical tutorials to help you master Minty step by step.",
       background: "bg-white",
@@ -123,8 +123,8 @@ export const getStartedContent = {
     },
     {
       id: "settings",
-      eyebrow: "Getting started guides",
-      title: "Settings",
+      eyebrow: "Guides for",
+      title: "Xero Settings",
       subtitle: "Short, practical tutorials to help you master Minty step by step.",
       background: "bg-[#F1F6F8]",
       items: [
@@ -144,6 +144,7 @@ export const getStartedContent = {
   ],
   xeroGuide: {
     title: "Connecting and Managing Xero Integration in Minty",
+    videoThumbnail: "/assets/deployed-assets/GS-02-02.png",
     videoUrl: "https://youtu.be/02fYdxjx6j8",
     duration: "1:26",
     videoNote: "IF ANY...",

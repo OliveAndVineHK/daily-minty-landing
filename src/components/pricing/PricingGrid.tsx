@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
+import { siteConfig } from '@/config/site';
 import AnimatedContent from '@/animations/pricing/heroanim';
 
 const pricingPlans = [
@@ -113,8 +114,12 @@ export default function PricingGrid() {
       
               <p className={`text-[11px] font-medium p-3 rounded-xl mb-6 ${isSuperMintyGreen ? 'bg-white/15 text-white' : 'text-[#113B4A] bg-[#F5F8F9]'}`}>{plan.trialText}</p>
 
-              <Button href='https://www.minty.oliveandvinehk.com/' className={`w-full py-3 rounded-xl font-bold text-sm mb-8 ${isSelected ? 'bg-[#113B4A] text-white' : 'bg-[#ECF2F5] text-[#113B4A]'}`}>
-                Try for free
+              <Button
+                href={siteConfig.waitlistUrl}
+                external
+                className={`w-full py-3 rounded-xl font-bold text-sm mb-8 ${isSelected ? 'bg-[#113B4A] text-white' : 'bg-[#ECF2F5] text-[#113B4A]'}`}
+              >
+                Join Waitlist
               </Button>
 
               <div className={`border-t pt-6 ${isSuperMintyGreen ? 'border-white/20' : 'border-gray-100'}`}>

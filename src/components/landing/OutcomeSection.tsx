@@ -31,7 +31,10 @@ export default function OutcomeSection() {
   return (
     <>
     <FadeContent blur={true} duration={1000} ease="ease-out" initialOpacity={0}>
-    <section className="bg-[#dcf3ec] py-20" aria-labelledby="outcome-title">
+    {/* id is the target of the hero's "See how it works" CTA. No scroll-mt —
+        the navbar is `relative`, not sticky, so any offset would just leave a
+        strip of the previous section visible above this one. */}
+    <section id="solution" className="bg-[#dcf3ec] py-20" aria-labelledby="outcome-title">
       <Container className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">

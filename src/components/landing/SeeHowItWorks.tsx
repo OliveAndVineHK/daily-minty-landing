@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { landingContent } from '@/config/landing';
+import { siteConfig } from '@/config/site';
 import FadeContent from '@/animations/landing/fadeanim';
 import Image from 'next/image';
 
@@ -33,7 +34,10 @@ export default function SeeHowItWorksSection() {
 
         <Button
           className="bg-white text-[#113B4A] hover:bg-white/90 font-bold px-6 py-2.5 md:py-3 rounded-full text-[13px] md:text-[14px] shadow-sm transition-all duration-200 mb-8 md:mb-12"
-          href='https://www.minty.oliveandvinehk.com/'
+          // Same ClickUp form as every other Join Waitlist CTA — this used to
+          // point at the app login, which no longer matches the label.
+          href={siteConfig.waitlistUrl}
+          external
         >
           {seeHowItWorks.buttonText}
         </Button>
