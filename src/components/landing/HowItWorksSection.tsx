@@ -21,12 +21,11 @@ export default function HowItWorksSection() {
             {how.subtitle}
           </p>
 
-          {/* Asymmetric Bento Grid (4 Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(230px,auto)] items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 auto-rows-[minmax(230px,auto)] items-stretch">
             
             {/* CARD 1: Left Vertical Card */}
             {how.steps[0] && (
-              <article className="md:row-span-2 bg-white border border-line/80 rounded-[24px] p-7 md:p-8 text-center shadow-minty-sm flex flex-col items-center justify-between">
+              <article className="md:row-span-2 md:col-start-1 md:row-start-1 bg-white border border-line/80 rounded-[24px] p-7 md:p-8 text-center shadow-minty-sm flex flex-col items-center justify-between">
                 <div className="w-full flex-1 flex items-center justify-center min-h-[180px]">
                   <Image
                     src={how.steps[0].image}
@@ -50,7 +49,7 @@ export default function HowItWorksSection() {
 
             {/* CARD 2: Middle-Top Horizontal Card */}
             {how.steps[1] && (
-              <article className="bg-white border border-line/80 rounded-[24px] p-5 sm:p-6 shadow-minty-sm flex flex-col sm:flex-row items-center justify-between gap-5 text-left">
+              <article className="md:col-start-2 md:row-start-1 bg-white border border-line/80 rounded-[24px] p-5 sm:p-6 shadow-minty-sm flex flex-col sm:flex-row items-center justify-between gap-5 text-center">
                 <div className="w-full sm:w-[38%] shrink-0 flex items-center justify-center">
                   <Image
                     src={how.steps[1].image}
@@ -60,13 +59,13 @@ export default function HowItWorksSection() {
                     className="w-auto h-auto max-h-[120px] sm:max-h-[135px] object-contain"
                   />
                 </div>
-                
-                <div className="w-full sm:w-[62%] flex flex-col items-start justify-center gap-2">
+
+                <div className="w-full sm:w-[62%] flex flex-col items-center justify-center gap-2">
                   <span className="w-7 h-7 rounded-full bg-mint/30 text-teal-deep inline-flex items-center justify-center font-bold text-xs shrink-0">
                     2
                   </span>
                   <h3 className="text-[18px] font-bold text-ink leading-snug">{how.steps[1].title}</h3>
-                  <p className="text-[14px] text-ink/75 leading-relaxed">
+                  <p className="text-[14px] text-ink/75 leading-relaxed max-w-[340px]">
                     {how.steps[1].body}
                   </p>
                 </div>
@@ -99,7 +98,7 @@ export default function HowItWorksSection() {
 
             {/* CARD 3: Middle-Bottom Horizontal Card */}
             {how.steps[2] && (
-              <article className="md:col-start-2 md:row-start-2 bg-white border border-line/80 rounded-[24px] p-5 sm:p-6 shadow-minty-sm flex flex-col sm:flex-row items-center justify-between gap-5 text-left">
+              <article className="md:col-start-2 md:row-start-2 bg-white border border-line/80 rounded-[24px] p-5 sm:p-6 shadow-minty-sm flex flex-col sm:flex-row items-center justify-between gap-5 text-center">
                 <div className="w-full sm:w-[38%] shrink-0 flex items-center justify-center">
                   <Image
                     src={how.steps[2].image}
@@ -109,13 +108,13 @@ export default function HowItWorksSection() {
                     className="w-auto h-auto max-h-[120px] sm:max-h-[135px] object-contain"
                   />
                 </div>
-                
-                <div className="w-full sm:w-[62%] flex flex-col items-start justify-center gap-2">
+
+                <div className="w-full sm:w-[62%] flex flex-col items-center justify-center gap-2">
                   <span className="w-7 h-7 rounded-full bg-mint/30 text-teal-deep inline-flex items-center justify-center font-bold text-xs shrink-0">
                     3
                   </span>
                   <h3 className="text-[18px] font-bold text-ink leading-snug">{how.steps[2].title}</h3>
-                  <p className="text-[14px] text-ink/75 leading-relaxed">
+                  <p className="text-[14px] text-ink/75 leading-relaxed max-w-[340px]">
                     {how.steps[2].body}
                   </p>
                 </div>
