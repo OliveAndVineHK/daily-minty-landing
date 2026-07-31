@@ -74,7 +74,7 @@ export default function GuidesSection() {
                 <span className={cn(
                   "text-xs font-bold px-3 py-1 rounded-full",
                   guide.category === "Petty Cash" ? "bg-[#EBF3FE] text-[#2F80ED]" :
-                  guide.category === "Bill Payment" ? "bg-[#FFFBF0] text-[#DCA11D]" : "bg-[#E6FAF7] text-[#00CBB0]"
+                  guide.category === "Payment Request" ? "bg-[#FFFBF0] text-[#DCA11D]" : "bg-[#E6FAF7] text-[#00CBB0]"
                 )}>
                   {guide.category}
                 </span>
@@ -134,7 +134,7 @@ export default function GuidesSection() {
                         'absolute top-3 right-3 z-10 text-[11px] font-bold text-white px-2.5 py-1 rounded-sm uppercase tracking-wider',
                         guide.badge === 'Petty Cash'
                           ? 'bg-[#10485E]'
-                          : guide.badge === 'Bill Payment'
+                          : guide.badge === 'Payment Request'
                             ? 'bg-[#0B5A75]'
                             : 'bg-[#113B4A]'
                       )}

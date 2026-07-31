@@ -113,7 +113,7 @@ export const getStartedContent = {
           id: 5,
           category: "Getting Started",
           duration: "0:34 sec",
-          title: "2. Void Incorrect Bills",
+          title: "2. Void Incorrect Payments",
           description: '"How do I connect Minty account with other accounting systems?"',
           badge: "",
           videoThumbnail: "/assets/deployed-assets/GS-07-03.png",

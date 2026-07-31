@@ -42,7 +42,7 @@ export const landingContent = {
         image: '/assets/deployed-assets/box_minty.png',
         alt: 'Request payments',
         title: 'Request payments',
-        body: 'Create, pay, and track payments + Minty keeps everyone aligned on bill payments.',
+        body: 'Create, pay, and track payments + Minty keeps everyone aligned on payment requests.',
       },
       {
         num: 4,
@@ -83,9 +83,9 @@ export const landingContent = {
     },
     {
       key: 'bill-payment',
-      title: 'Payment',
+      title: 'Payment Request',
       image: '/assets/deployed-assets/landing_petty.png',
-      alt: 'Bill payment placeholder',
+      alt: 'Payment request placeholder',
       // Added design tokens for the second card
       icon: 'ReceiptText',
       bgColor: 'bg-[#0f2d37]',
@@ -118,13 +118,14 @@ demo: {
   badge: 'WATCH HOW IT WORKS',
   title: 'See Minty in action',
   subtitle: '',
+  buttonText: 'Join Waitlist',
   videoUrl: 'https://www.youtube.com/embed/LZVNOp6YTzE',
 },
 keepMeUpdated: {
   eyebrow: 'Interested?',
   title: 'Keep me updated',
   buttonText: 'Join the Waitlist',
-  backgroundImage: '/assets/deployed-assets/sky.webp',
+  backgroundImage: '/assets/deployed-assets/sky.png',
   mascotImage: '/assets/deployed-assets/super.png',
   mascotAlt: 'Minty mascot superhero with red cape',
 }

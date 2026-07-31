@@ -11,7 +11,7 @@ import KeepMeUpdatedSection from '@/components/landing/KeepMeUpdatedSection';
 export const metadata: Metadata = {
   title: 'Daily Minty',
   description:
-    'Daily Minty makes daily cash closing simple. Petty cash, bill payment, and Xero sync in one calm dashboard for small business owners.',
+    'Daily Minty makes daily cash closing simple. Petty cash, payment request, and Xero sync in one calm dashboard for small business owners.',
   alternates: { canonical: '/' },
 };
 

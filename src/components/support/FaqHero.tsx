@@ -21,7 +21,7 @@ export default function FAQHero() {
         {/* Left Content */}
         <div className="z-10 flex-1">
           <p className="text-white font-bold text-[10px] md:text-sm tracking-widest uppercase mb-1 md:mb-2 opacity-90">
-            Petty Cash & Bill Payment
+            Petty Cash & Payment Request
           </p>
           <h1 className="text-white text-[28px] md:text-[48px] font-extrabold tracking-tight leading-[1.2] md:leading-[1.15]">
             Frequently

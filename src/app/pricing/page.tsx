@@ -54,19 +54,19 @@ export default function PricingPage() {
     },
     {
       id: 'bill-payment',
-      title: 'Bill Payment',
-      description: 'Schedule supplier bills, log payments, and never miss a due date.',
+      title: 'Payment Request',
+      description: 'Schedule supplier payments, log payments, and never miss a due date.',
       illustrationSrc: '/assets/deployed-assets/sub-bill-payment.png', 
       crossedText: 'HKD 280/mo',
       currentPrice: 'Free',
       subText: 'per shop, billed monthly\nSingle service subscription.',
       trialText: 'Free trial for the first 30 days, then HKD 280/mo.',
       features: [
-        'Bill scheduling & reminder',
+        'Payment scheduling & reminder',
         'Supplier & vendor directory',
         'Payment logging & proof upload',
         'Payables & PDF reports',
-        'Xero sync (bills & payments)',
+        'Xero sync (payments)',
         'Team invites & roles'
       ],
       isPopular: false,
@@ -74,15 +74,15 @@ export default function PricingPage() {
     {
       id: 'super-minty',
       title: 'Super Minty',
-      description: 'Both services, one bill — add the second for just HKD 120 more.',
+      description: 'Both services, one payment — add the second for just HKD 120 more.',
       illustrationSrc: '/assets/deployed-assets/sub-super-minty.png',
       crossedText: 'HKD 400/mo',
       currentPrice: 'Free',
-      subText: 'Petty Cash + Bill Payment, billed monthly.',
+      subText: 'Petty Cash + Payment Request, billed monthly.',
       trialText: 'Free trial for the first 30 days, then HKD 400/mo.',
       features: [
         'Everything from Petty Cash',
-        'Everything from Bill Payment',
+        'Everything from Payment Request',
         'Xero sync (full)',
         'Multi-shop management',
         'Team invites & roles'
@@ -232,7 +232,7 @@ export default function PricingPage() {
 
 
           <p className="text-center text-gray-400 text-[11px] max-w-[800px] mx-auto mb-16 leading-normal">
-            *Prices in HKD, billed monthly per shop. Subscribe to one service for HKD 280/mo, or add the second for just HKD 120 more — the Super Minty bundle at HKD 400/mo.
+            *Prices in HKD, billed monthly per shop. Subscribe to one service for HKD 280/mo, or add the second for just HKD 120 more — the Super Minty plan at HKD 400/mo.
           </p>
 
 

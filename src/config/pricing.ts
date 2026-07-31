@@ -52,10 +52,10 @@ export const landingPricing: PricingPlan[] = [
   },
   {
     key: 'bill-payment',
-    name: 'Bill Payment',
-    thumbSrc: '/assets/deployed-assets/sub-bill-payment.png', // Bill & cash illustration
+    name: 'Payment Request',
+    thumbSrc: '/assets/deployed-assets/sub-bill-payment.png', // Payment & cash illustration
     isPopular: false,
-    tagline: 'Schedule supplier bills, log payments, and never miss a due date.',
+    tagline: 'Schedule supplier payments, log payments, and never miss a due date.',
     strikePrice: {
       currency: 'HKD',
       amount: '280',
@@ -69,11 +69,11 @@ export const landingPricing: PricingPlan[] = [
     },
     featuresHeading: 'What you get:',
     features: [
-      'Bill scheduling & reminder',
+      'Payment scheduling & reminder',
       'Supplier & vendor directory',
       'Payment logging & proof upload',
       'Payables & PDF reports',
-      'Xero sync (bills & payments)',
+      'Xero sync (payments)',
       'Team invites & roles'
     ]
   },
@@ -83,13 +83,13 @@ export const landingPricing: PricingPlan[] = [
     thumbSrc: '/assets/deployed-assets/sub-super-minty.png', // Combined master card illustration
     isPopular: true,
     popularTag: 'BEST VALUE',
-    tagline: 'Both services, one bill — add the second for just HKD 120 more.',
+    tagline: 'Both services, one payment — add the second for just HKD 120 more.',
     strikePrice: {
       currency: 'HKD',
       amount: '400',
       unit: '/mo'
     },
-    meta: 'Petty Cash + Bill Payment, billed monthly.',
+    meta: 'Petty Cash + Payment Request, billed monthly.',
     trialNote: 'Free trial for the first 30 days, then HKD 400/mo.',
     cta: {
       label: 'Join Waitlist',
@@ -98,7 +98,7 @@ export const landingPricing: PricingPlan[] = [
     featuresHeading: 'Everything in both services:',
     features: [
       'Everything from Petty Cash',
-      'Everything from Bill Payment',
+      'Everything from Payment Request',
       'Xero sync (full)',
       'Multi-shop management',
       'Team invites & roles'

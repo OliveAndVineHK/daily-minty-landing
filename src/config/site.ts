@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Minty',
   tagline: 'Daily closing, finally calm.',
   description:
-    'Daily Minty helps small businesses close the day with confidence. Petty cash and bill payment, synced to Xero, in one calm dashboard.',
+    'Daily Minty helps small businesses close the day with confidence. Petty cash and payment request, synced to Xero, in one calm dashboard.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dailyminty.com',
   loginUrl:
     process.env.NEXT_PUBLIC_WAITLIST_URL ||
@@ -17,7 +17,7 @@ export const siteConfig = {
   keywords: [
     'daily cash close',
     'petty cash app',
-    'bill payment app',
+    'payment request app',
     'Xero integration',
     'POS reconciliation',
     'small business accounting',

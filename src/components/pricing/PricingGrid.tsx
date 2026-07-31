@@ -22,8 +22,8 @@ const pricingPlans = [
   },
   {
     id: 'bill-payment',
-    title: 'Payment',
-    description: 'Schedule supplier payment, log payments, and never miss a due date.',
+    title: 'Payment Request',
+    description: 'Schedule supplier payments, log payments, and never miss a due date.',
     illustrationSrc: '/assets/deployed-assets/sub-bill-payment.png',
     crossedText: 'HKD 280/mo',
     currentPrice: 'Free',
@@ -36,7 +36,7 @@ const pricingPlans = [
   {
     id: 'super-minty',
     title: 'Super Minty',
-    description: 'Both services, one bill — add the second for just HKD 120 more.',
+    description: 'Both services, one payment — add the second for just HKD 120 more.',
     illustrationSrc: '/assets/deployed-assets/sub-super-minty.png',
     crossedText: 'HKD 400/mo',
     currentPrice: 'Free',
@@ -151,7 +151,7 @@ export default function PricingGrid() {
     </div>
 
       <p className="text-center text-gray-400 text-[11px] max-w-[800px] mx-auto mb-16 leading-normal mt-8">
-        *Prices in HKD, billed monthly per shop. Subscribe to one service for HKD 280/mo, or add the second for just HKD 120 more — the Super Minty bundle at HKD 400/mo.
+        *Prices in HKD, billed monthly per shop. Subscribe to one service for HKD 280/mo, or add the second for just HKD 120 more — the Super Minty plan at HKD 400/mo.
       </p>
     </section>
     </AnimatedContent>
